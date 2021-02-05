@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./Police/Poppins-Regular.ttf);
+}
+  
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url(./Police/Poppins-Medium.ttf);
+}
+  
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: url(./Police/Poppins-Bold.ttf);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
 body {
     background-color: #E2FDFF;
     color: black;
@@ -65,3 +91,4 @@ nav{
 .active {
     border: 5px solid #1C92FF;
 }
+
