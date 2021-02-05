@@ -20,8 +20,8 @@ body {
     position: absolute;
     width: 75px;
     height: 75px;
-    bottom: 25px; left: 50%;
-    text-align: center;
+    bottom: 25px;
+    right: 0; left: 0;
     background: #68D1FE;
     box-sizing: border-box;
     border-radius: 50%;
