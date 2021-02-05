@@ -3,6 +3,10 @@ body {
     color: black;
 }
 
+.copyright {
+    text-align: right;
+}
+
 .nav-rond-left {
     position: absolute;
     width: 75px;
