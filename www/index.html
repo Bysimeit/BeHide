@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
@@ -12,22 +12,31 @@
         <title>BeHide</title>
     </head>
     <body>
-        <header>
+        <header class="header">
             <p class="copyright">&copy;BeHide</p>
             <div>
                 <div class="font-pp">
                     <!-- Photo de profil -->
-                    <img class="pp">
+                    <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
                 </div>
                 <div class="bienvenue">
-                    <p>Bonsoir Paul</p>
+                    <!-- Mot gentil + prénom de l'utilisateur -->
+                    <p class="message">Bonsoir Paul</p>
                 </div>
             </div>
         </header>
-        <nav>
-            <a href="#conversations" class="nav-rond-left"></a>
-            <a href="#appels" class="nav-rond-center"></a>
-            <a href="#contact" class="nav-rond-right"></a>
+        
+        <section class="view" ng-view></section>
+
+        <nav ng-controller="NavCtrl">
+            <a href="#conversations" ng-click="menu='conversations'" class="nav-rond-left" ng-class="{active: menu=='conversations'}"></a>
+            <a href="#appels" ng-click="menu='appels'" class="nav-rond-center" ng-class="{active: menu=='appels'}"></a>
+            <a href="#contacts" ng-click="menu='contacts'" class="nav-rond-right" ng-class="{active: menu=='contacts'}"></a>
         </nav>
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/angular.js"></script>
+        <script src="../js/NavCtrl.js"></script>
+        <script src="../js/app.js"></script>
     </body>
 </html>
