@@ -19,6 +19,27 @@
     src: url(./Police/Poppins-Bold.ttf);
 }
 
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 500;
+    src: url(./Police/Poppins-Italic.ttf);
+}
+  
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 600;
+    src: url(./Police/Poppins-MediumItalic.ttf);
+}
+  
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 700;
+    src: url(./Police/Poppins-BoldItalic.ttf);
+}
+
 * {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
