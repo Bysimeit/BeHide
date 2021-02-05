@@ -99,7 +99,8 @@ body {
 
 .titre {
     position: absolute;
-    top: -10px; bottom: 0; left: 15px;
+    top: -9px; bottom: 0; left: 20px;
+    font-size: 15px;
 }
 
 .fond-screen {
