@@ -94,7 +94,7 @@ body {
 
 .view {
     position: absolute;
-    top: 100px; right: 0; bottom: 75px; right: 0;
+    top: 100px; left: 0; bottom: 75px; right: 0;
     overflow: hidden;
 }
 
