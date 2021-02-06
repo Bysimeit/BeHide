@@ -55,7 +55,7 @@ body {
     top: 0; left: 0; right: 0;
 }
 .off {
-    height: 100px;
+    transform: translate3d(0, 0, 0);
 }
 
 .copyright {
@@ -66,10 +66,11 @@ body {
 
 
 .on {
-    height: 240px;
+    transform: translate3d(0, -105%, 0);
 }
 .font-menu {
     position: absolute;
+    height: 240px;
     background: #00ABB6;
     top: 10px; left: 10px; right: 10px; bottom: 10px;
     z-index: 5;
