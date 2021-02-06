@@ -55,6 +55,7 @@ body {
     top: 0; left: 0; right: 0;
 }
 .off {
+    display: block;
     transform: translate3d(0, 0, 0);
 }
 
@@ -62,6 +63,10 @@ body {
     position: absolute;
     right: 10px; bottom: 0; top: 0;
     font-size: 12px;
+}
+
+.begin {
+    display: none;
 }
 
 
