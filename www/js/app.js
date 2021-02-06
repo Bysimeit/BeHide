@@ -11,9 +11,3 @@ app.config(function($routeProvider) {
         .when('/contacts', {templateUrl: 'pages/contacts.html'})
         .otherwise({redirectTo: '/conversations'})
 });
-
-function defMenu($scope) {
-    $scope.panel = 0;
-}
-
-defMenu();
