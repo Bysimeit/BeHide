@@ -23,12 +23,6 @@
                     <p class="message">Bonsoir Paul</p> <!-- Le prénom de la personne est à récupérer dans la bdd -->
                 </div>
             </div>
-            <script>
-                function changeBegin(){
-                    document.getElementById("menu").classList.remove("begin");
-                }
-                setTimeout(changeBegin,100);
-            </script>
             <div id="menu" class="font-menu begin" ng-class="{on:panel==1, off:panel==0}">
                 <div class="font-pp" ng-click="panel=1">
                     <!-- Photo de profil -->
