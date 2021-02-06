@@ -11,10 +11,10 @@
         <title>BeHide</title>
     </head>
     <body>
-        <header class="header">
+        <header class="header" ng-controller="Menu">
             <p class="copyright">&copy;BeHide</p>
             <div ng-class="{off:panel==0, on:panel>0}">
-                <div class="font-pp">
+                <div class="font-pp" ng-click="panel=0">
                     <!-- Photo de profil -->
                     <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
                 </div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="font-menu" ng-class="{on:panel==1, off:panel<1}">
-                <div class="font-pp">
+                <div class="font-pp" ng-click="panel=1">
                     <!-- Photo de profil -->
                     <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
                 </div>
@@ -61,5 +61,6 @@
         <script src="../js/angular.js"></script>
         <script src="../js/NavCtrl.js"></script>
         <script src="../js/app.js"></script>
+        <script src="../js/Menu.js"></script>
     </body>
 </html>
