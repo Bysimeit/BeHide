@@ -75,6 +75,7 @@ body {
     top: 10px; left: 10px; right: 10px; bottom: 10px;
     z-index: 5;
     border-radius: 20px;
+    transition-duration: .5s;
 }
 
 .statut {
