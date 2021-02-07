@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="css/accueil.css">
         <title>BeHide</title>
     </head>
-    <body>
-        <header class="header" ng-controller="Menu">
-            <p class="copyright">&copy;BeHide</p>
+    <body ng-controller="Menu">
+        <header class="header">
+            <p class="copyright" ng-hide="panel==0">&copy;BeHide</p>
             <div class="off" ng-class="{off:panel==0, on:panel==1}">
                 <div class="font-pp" ng-click="panel=0">
                     <!-- Photo de profil -->
@@ -29,7 +29,7 @@
                     <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
                 </div>
                 <div>
-                    <input class="statut" type="text" placeholder="Statut"> <!-- Le prénom de la personne est à récupérer dans la bdd -->
+                    <input class="statut" type="text" placeholder="     Statut"> <!-- Le prénom de la personne est à récupérer dans la bdd -->
                     <a href="#">
                         <div class="menu-choix profil">
                             <strong>PROFIL</strong>
@@ -49,7 +49,7 @@
             </div>
         </header>
         
-        <section class="view" ng-view></section>
+        <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
         <nav ng-controller="NavCtrl">
             <div class="nav-rond-left">
