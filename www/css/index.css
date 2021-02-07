@@ -351,6 +351,10 @@ nav {
     text-decoration: underline;
 }
 
+.supportinfos {
+    position: absolute;
+}
+
 .down {
     transform: translate3d(0, 1000%, 0);
     transition-duration: 2s;
