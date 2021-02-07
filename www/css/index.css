@@ -148,6 +148,14 @@ body {
 .view {
     position: absolute;
     top: 100px; left: 0; bottom: 75px; right: 0;
+    transition-duration: .5s;
+}
+.scrollingon {
+    transform: translate3d(0, 32.5%, 0);
+    top: 160px; left: 0; bottom: 195px; right: 0;
+}
+.scrollingoff {
+    transform: translate3d(0, 0, 0);
 }
 
 .titre {
