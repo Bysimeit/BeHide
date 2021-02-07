@@ -12,7 +12,7 @@
         <title>BeHide</title>
     </head>
     <body ng-controller="Menu">
-        <header class="header">
+        <header class="header" ng-class="{cache:deploy==0}">
             <p class="copyright" ng-hide="panel==0">&copy;BeHide</p>
             <div class="off" ng-class="{off:panel==0, on:panel==1}">
                 <div class="font-pp" ng-click="panel=0">
@@ -35,17 +35,17 @@
                 </div>
                 <div>
                     <input class="statut" type="text" placeholder="     Statut"> <!-- Le prénom de la personne est à récupérer dans la bdd -->
-                    <a href="../pages/menu/profil.html">
-                        <div class="menu-choix profil">
+                    <a href="#"  ng-click="panel=1">
+                        <div class="menu-choix profil" ng-click="deployprofil=0">
                             <strong>PROFIL</strong>
                         </div>
                     </a>
-                    <a href="../pages/menu/support.html">
+                    <a href="#">
                         <div class="menu-choix support">
                             <strong>SUPPORT</strong>
                         </div>
                     </a>
-                    <a href="../pages/menu/apropos.html">
+                    <a href="#">
                         <div class="menu-choix apropos">
                             <strong>À PROPOS</strong>
                         </div>
@@ -61,6 +61,34 @@
             <a href="#appels" class="nav-rond-center" ng-click="menu='appels'" ng-class="{active: menu=='appels'}"></a>
             <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts'" ng-class="{active: menu=='contacts'}"></a>
         </nav>
+
+        <footer>
+            <section class="section-profil" ng-class="{down:deployprofil==1, base:deployprofil==0}">
+                <div class="large-title">
+                    <strong>BeHide</strong>
+                </div>
+                <div class="menubutton">
+                    <div class="menu-choix trousseau" ng-click="deployprofil=1">
+                        <strong>Changer le trousseau de clés</strong>
+                    </div>
+                    <div class="menu-choix deconnecter" ng-click="deployprofil=1">
+                        <strong>Se déconnecter</strong>
+                    </div>
+                    <div class="menu-choix supprimer" ng-click="deployprofil=1">
+                        <strong>Supprimer mon compte</strong>
+                    </div>
+                    <div class="menu-choix retour" ng-click="deployprofil=1">
+                        <strong>Retour</strong>
+                    </div>
+                </div>
+            </section>
+            <section>
+                
+            </section>
+            <section>
+                
+            </section>
+        </footer>
 
         <script src="../js/jquery.js"></script>
         <script src="../js/angular.js"></script>
