@@ -3,7 +3,7 @@ var heure = day.getHours();
 
 //Midi
 if (heure == 12){
-    document.getElementById("welcome").innerHTML = "Bon appétit ;)"
+    document.getElementById("welcome").innerHTML = "Bon appétit 😉"
 }
 
 //Soirée
@@ -45,7 +45,7 @@ if (heure > 5 && heure < 12){
     var random = Math.floor(Math.random() * 3);
 
     if (random == 0){
-        document.getElementById("welcome").innerHTML = "Bonjour Paul ;)"
+        document.getElementById("welcome").innerHTML = "Bonjour Paul 😉"
     }
     
     else if (random == 1){
@@ -66,7 +66,7 @@ if (heure > 12 && heure <= 17){
     }
     
     else if (random == 1){
-        document.getElementById("welcome").innerHTML = "Belle journée ;)"
+        document.getElementById("welcome").innerHTML = "Belle journée 😉"
     }
 
     else if (random == 2){
