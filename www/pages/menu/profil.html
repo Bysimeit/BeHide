@@ -5,10 +5,10 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/conversations.css">
-        <link rel="stylesheet" href="css/appels.css">
-        <link rel="stylesheet" href="css/contacs.css">
+        <link rel="stylesheet" href="/www/css/index.css">
+        <link rel="stylesheet" href="../css/conversations.css">
+        <link rel="stylesheet" href="../css/appels.css">
+        <link rel="stylesheet" href="../css/contacs.css">
         <title>BeHide</title>
     </head>
     <body ng-controller="Menu">
@@ -49,13 +49,11 @@
                 </div>
             </div>
         </header>
-        
-        <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
         <nav ng-controller="NavCtrl">
-            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations'" ng-class="{active: menu=='conversations'}"></a>
-            <a href="#appels" class="nav-rond-center" ng-click="menu='appels'" ng-class="{active: menu=='appels'}"></a>
-            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts'" ng-class="{active: menu=='contacts'}"></a>
+            <a href="../pages/conversations.html" class="nav-rond-left"></a>
+            <a href="#appels" class="nav-rond-center"></a>
+            <a href="#contacts" class="nav-rond-right"></a>
         </nav>
 
         <script src="../js/jquery.js"></script>
