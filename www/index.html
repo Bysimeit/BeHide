@@ -19,10 +19,8 @@
                     <!-- Photo de profil -->
                     <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
                 </div>
-                <div class="bienvenue">
-                    <!-- Mot gentil + prénom de l'utilisateur -->
-                    <p class="message">Bonsoir Paul</p> <!-- Le prénom de la personne est à récupérer dans la bdd -->
-                </div>
+                <!-- Mot gentil + prénom de l'utilisateur -->
+                <p class="message" id="welcome"></p> <!-- Le prénom de la personne est à récupérer dans la bdd -->
             </div>
             <div id="menu" class="font-menu begin" ng-class="{on:panel==1, off:panel==0}">
                 <div class="img_added">
@@ -98,5 +96,6 @@
         <script src="../js/NavCtrl.js"></script>
         <script src="../js/app.js"></script>
         <script src="../js/Menu.js"></script>
+        <script src="../js/Welcome.js"></script>
     </body>
 </html>
