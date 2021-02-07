@@ -1,0 +1,13 @@
+.lst_contact{
+    position: absolute;
+    left: 5px; right: 5px; top: 40px;
+    height: 90%;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 25px;
+    overflow: scroll;
+}
+
+.personne{
+    width: 448px;
+    height: 448px;
+}
