@@ -273,6 +273,13 @@ nav {
     height: 98vh;
 }
 
+.section-apropos {
+    background-color: #E2FDFF;
+    z-index: 3;
+    position: relative;
+    height: 98vh;
+}
+
 .large-title {
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -296,6 +303,11 @@ nav {
     transition-duration: 2s;
 }
 
+.down_apropos {
+    transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
+}
+
 .base {
     transform: translate3d(0, 0, 0);
     transition-duration: .5s;
@@ -303,6 +315,11 @@ nav {
 
 .base_support {
     transform: translate3d(0, -100%, 0);
+    transition-duration: .5s;
+}
+
+.base_apropos {
+    transform: translate3d(0, -200%, 0);
     transition-duration: .5s;
 }
 

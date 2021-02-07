@@ -38,13 +38,13 @@
                             <strong>PROFIL</strong>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="#" ng-click="panel=1">
                         <div class="menu-choix support" ng-click="deploysupport=0">
                             <strong>SUPPORT</strong>
                         </div>
                     </a>
-                    <a href="#">
-                        <div class="menu-choix apropos">
+                    <a href="#" ng-click="panel=1">
+                        <div class="menu-choix apropos" ng-click="deployapropos=0">
                             <strong>À PROPOS</strong>
                         </div>
                     </a>
@@ -102,8 +102,24 @@
                 </div>
             </section>
             <!-- À propos -->
-            <section>
-                
+            <section id="apropos" class="section-apropos begin" ng-class="{down_apropos:deployapropos==1, base_apropos:deployapropos==0}">
+                <div class="large-title">
+                    <strong>BeHide</strong>
+                </div>
+                <div class="menubutton">
+                    <div class="menu-choix trousseau" ng-click="deployapropos=1">
+                        <strong>Changer le trousseau de clés</strong>
+                    </div>
+                    <div class="menu-choix deconnecter" ng-click="deployapropos=1">
+                        <strong>Se déconnecter</strong>
+                    </div>
+                    <div class="menu-choix supprimer" ng-click="deployapropos=1">
+                        <strong>Supprimer mon compte</strong>
+                    </div>
+                    <div class="menu-choix retour" ng-click="deployapropos=1">
+                        <strong>Retour</strong>
+                    </div>
+                </div>
             </section>
         </footer>
 
