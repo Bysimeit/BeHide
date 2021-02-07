@@ -261,9 +261,15 @@ nav {
 .section-profil {
     background-color: #E2FDFF;
     z-index: 1;
-    transition-duration: .5s;
     position: relative;
-    height: 500px;
+    height: 98vh;
+}
+
+.section-support {
+    background-color: #E2FDFF;
+    z-index: 2;
+    position: relative;
+    height: 98vh;
 }
 
 .large-title {
@@ -281,10 +287,12 @@ nav {
 
 .down {
     transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
 }
 
 .base {
     transform: translate3d(0, 0, 0);
+    transition-duration: .5s;
 }
 
 .menubutton {
