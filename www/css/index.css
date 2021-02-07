@@ -267,6 +267,13 @@ nav {
     height: 98vh;
 }
 
+.section-support {
+    background-color: #E2FDFF;
+    z-index: 2;
+    position: relative;
+    height: 98vh;
+}
+
 .large-title {
     position: absolute;
     top: 0; left: 0; right: 0;

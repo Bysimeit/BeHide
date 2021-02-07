@@ -1,11 +1,13 @@
 function Menu($scope) {
     $scope.panel = 1;
     $scope.deployprofil = 1;
+    $scope.deploysupport = 1;
 }
 
 function changeBegin(){
     document.getElementById("menu").classList.remove("begin");
     document.getElementById("profil").classList.remove("begin");
+    document.getElementById("support").classList.remove("begin");
 }
 
 setTimeout(changeBegin,100);

@@ -41,7 +41,7 @@
                         </div>
                     </a>
                     <a href="#">
-                        <div class="menu-choix support">
+                        <div class="menu-choix support" ng-click="deploysupport=0">
                             <strong>SUPPORT</strong>
                         </div>
                     </a>
@@ -84,8 +84,24 @@
                 </div>
             </section>
             <!-- Support -->
-            <section>
-                
+            <section id="support" class="section-support begin" ng-class="{down:deploysupport==1, base:deploysupport==0}">
+                <div class="large-title">
+                    <strong>BeHide</strong>
+                </div>
+                <div class="menubutton">
+                    <div class="menu-choix trousseau" ng-click="deploysupport=1">
+                        <strong>Changer le trousseau de clés</strong>
+                    </div>
+                    <div class="menu-choix deconnecter" ng-click="deploysupport=1">
+                        <strong>Se déconnecter</strong>
+                    </div>
+                    <div class="menu-choix supprimer" ng-click="deploysupport=1">
+                        <strong>Supprimer mon compte</strong>
+                    </div>
+                    <div class="menu-choix retour" ng-click="deploysupport=1">
+                        <strong>Retour</strong>
+                    </div>
+                </div>
             </section>
             <!-- À propos -->
             <section>
