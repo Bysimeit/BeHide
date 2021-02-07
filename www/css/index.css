@@ -49,6 +49,7 @@ body {
     background-color: #E2FDFF;
     color: black;
     overflow: hidden;
+    margin: 5px;
 }
 
 .header {
@@ -290,8 +291,18 @@ nav {
     transition-duration: 2s;
 }
 
+.down_support {
+    transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
+}
+
 .base {
     transform: translate3d(0, 0, 0);
+    transition-duration: .5s;
+}
+
+.base_support {
+    transform: translate3d(0, -100%, 0);
     transition-duration: .5s;
 }
 
