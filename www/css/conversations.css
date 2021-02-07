@@ -1,0 +1,16 @@
+.titre{
+    position: relative;
+    width: 150px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.titre img{
+    position: absolute;
+    left: 0;
+    top: 40%;
+}
+.titre p{
+    position: absolute;
+    left: 30px;
+}

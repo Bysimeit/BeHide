@@ -183,7 +183,7 @@ nav {
     width: 75px;
     height: 75px;
     bottom: -10px; left: 25px;
-    background: center / contain no-repeat  #68D1FE url(./icones/controls-chat-02512px.png);
+    background: center / contain no-repeat  #68D1FE url(./icones/chat\ \(1\).png);
     box-sizing: border-box;
     border-radius: 50%;
     background-size: 60%;
@@ -206,10 +206,10 @@ nav {
     width: 75px;
     height: 75px;
     bottom: -10px; right: 25px;
-    background: center / contain no-repeat  #68D1FE url(./icones/controls-editor-contacts512px.png);
+    background:  center / contain no-repeat  #68D1FE url(./icones/contacts\ \(1\).png);
     box-sizing: border-box;
     border-radius: 50%;
-    background-size: 60%;
+    background-size: 55%;
 }
 
 .active {
