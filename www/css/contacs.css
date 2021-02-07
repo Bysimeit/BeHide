@@ -7,6 +7,10 @@
     overflow: scroll;
 }
 
+.all_contact_flex{
+    display: flex;
+}
+
 .personne{
     width: 448px;
     height: 448px;
