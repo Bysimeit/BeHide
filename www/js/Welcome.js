@@ -62,7 +62,7 @@ if (heure > 12 && heure <= 17){
     var random = Math.floor(Math.random() * 3);
 
     if (random == 0){
-        document.getElementById("welcome").innerHTML = "Comment allez vous ? ^^"
+        document.getElementById("welcome").innerHTML = "Comment allez vous ? 😄"
     }
     
     else if (random == 1){
