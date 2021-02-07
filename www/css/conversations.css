@@ -14,3 +14,38 @@
     position: absolute;
     left: 30px;
 }
+
+.Contact{
+    margin-top: 5px;
+    position: relative;
+    width: 99%;
+    height: 60px;
+    background-color: #00ABB6;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 217px;
+}
+
+.img_contact{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.img_contact img{
+    border-radius: 50%;
+}
+
+.name_contact{
+    position: absolute;
+    left: 65px;
+    bottom: 0px;
+    font-size: 20px;
+}
+
+.time_last_conv {
+    position: absolute;
+    font-size: 10px;
+    bottom: -1px;
+    
+}
