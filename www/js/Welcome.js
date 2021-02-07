@@ -32,7 +32,7 @@ if (heure > 22 || heure < 5){
     }
     
     else if (random == 1){
-        document.getElementById("welcome").innerHTML = "Je vais aller me coucher ^^"
+        document.getElementById("welcome").innerHTML = "Je vais aller me coucher 😄"
     }
 
     else if (random == 2){
