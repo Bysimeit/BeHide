@@ -25,9 +25,13 @@
                 </div>
             </div>
             <div id="menu" class="font-menu begin" ng-class="{on:panel==1, off:panel==0}">
-                <div class="font-pp" ng-click="panel=1">
-                    <!-- Photo de profil -->
-                    <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
+                <div class="img_added">
+                    <div class="degrade">
+                        <img class="add_pic" src="css/icones/addwhite.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
+                    </div>
+                </div>
+                <div class="cancel" ng-click="panel=1">
+                    <img alt="cancel" src="../css/icones/cancelwhite.png" width="20px">
                 </div>
                 <div>
                     <input class="statut" type="text" placeholder="     Statut"> <!-- Le prénom de la personne est à récupérer dans la bdd -->
