@@ -3,6 +3,7 @@ function Menu($scope) {
     $scope.deployprofil = 1;
     $scope.deploysupport = 1;
     $scope.deployapropos = 1;
+    $scope.deployajout = 1;
 }
 
 function changeBegin(){
@@ -10,6 +11,7 @@ function changeBegin(){
     document.getElementById("profil").classList.remove("begin");
     document.getElementById("support").classList.remove("begin");
     document.getElementById("apropos").classList.remove("begin");
+    document.getElementById("ajout").classList.remove("begin");
 }
 
 setTimeout(changeBegin,100);
