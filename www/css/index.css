@@ -270,7 +270,7 @@ nav {
     background-color: #E2FDFF;
     z-index: 2;
     position: relative;
-    height: 98vh;
+    height: 100vh;
 }
 
 .section-apropos {
@@ -336,7 +336,7 @@ nav {
 }
 
 .base_support {
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -98%, 0);
     transition-duration: .5s;
 }
 
