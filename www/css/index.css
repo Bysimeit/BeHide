@@ -131,6 +131,38 @@ body {
     border-radius: 50%;
 }
 
+.img_added{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    left: 15px; top: 15px;
+    background-image: url(../img/default-profile.png);
+    background-size: contain;
+}
+
+.degrade{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    left: 2.5px; top: 2.5px;
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 0.10), rgba(51, 51, 51, 0.7) 100%);
+}
+
+.add_pic{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 12.5px; top: 12.5px;
+    border-radius: 0%;
+}
+
+.cancel{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
 .bienvenue {
     position: absolute;
     width: 150px;
