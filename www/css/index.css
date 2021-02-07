@@ -255,13 +255,21 @@ nav {
     z-index: -1;
 }
 
+.page_profil{
+    position: relative;
+    height: 100%;
+}
+
 .section-profil {
     background-color: #E2FDFF;
     z-index: 1;
     transition-duration: .5s;
+    position: relative;
+    height: 500px;
 }
 
 .large-title {
+    position: absolute;
     top: 0; left: 0; right: 0;
     background: #00ABB6;
     width: auto;
@@ -283,8 +291,9 @@ nav {
 
 .menubutton {
     position: absolute;
-    top: 0;
-    height: 300px;
+    bottom: 0;
+    height: 180px;
+    width: 100%;
 }
 
 .trousseau {
@@ -296,11 +305,12 @@ nav {
 }
 
 .deconnecter {
-    position: relative;
+    position:  relative;
     left: 0; right: 0;
     margin-left: auto;
     margin-right: auto;
     background: #FF2C2C;
+    margin-top: 10px;
 }
 
 .supprimer {
@@ -309,6 +319,7 @@ nav {
     margin-left: auto;
     margin-right: auto;
     background: #FF2C2C;
+    margin-top: 10px;
 }
 
 .retour {
@@ -317,4 +328,5 @@ nav {
     margin-left: auto;
     margin-right: auto;
     background: #68D1FE;
+    margin-top: 10px;
 }
