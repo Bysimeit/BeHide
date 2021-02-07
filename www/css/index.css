@@ -263,21 +263,21 @@ nav {
     background-color: #E2FDFF;
     z-index: 1;
     position: relative;
-    height: 98vh;
+    height: 100vh;
 }
 
 .section-support {
     background-color: #E2FDFF;
     z-index: 2;
     position: relative;
-    height: 98vh;
+    height: 100vh;
 }
 
 .section-apropos {
     background-color: #E2FDFF;
     z-index: 3;
     position: relative;
-    height: 98vh;
+    height: 100vh;
 }
 
 .large-title {
@@ -341,7 +341,7 @@ nav {
 }
 
 .base {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, -2%, 0);
     transition-duration: .5s;
 }
 
