@@ -19,7 +19,7 @@ if (heure > 17 && heure <= 22){
     }
 
     else if (random == 2){
-        document.getElementById("welcome").innerHTML = "Pas trop fatigué ?"
+        document.getElementById("welcome").innerHTML = "Pas trop fatigué 😉 ?"
     }
 }
 
