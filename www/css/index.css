@@ -203,7 +203,7 @@ body {
     height: 85%;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 25px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 nav {
