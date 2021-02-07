@@ -26,6 +26,17 @@
     border-radius: 217px;
 }
 
+.Bloque{
+    margin-top: 5px;
+    position: relative;
+    width: 99%;
+    height: 60px;
+    background-color: #B80909;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 217px;
+}
+
 .img_contact{
     position: absolute;
     left: 5px;
