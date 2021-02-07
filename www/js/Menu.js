@@ -4,6 +4,7 @@ function Menu($scope) {
     $scope.deploysupport = 1;
     $scope.deployapropos = 1;
     $scope.deployajout = 1;
+    $scope.isContact = 0;
 }
 
 function changeBegin(){

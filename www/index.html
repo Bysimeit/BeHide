@@ -51,7 +51,11 @@
                 </div>
             </div>
         </header>
-        
+
+        <div class="Ajouter_contact" ng-click="deployajout=0" ng-class="{add_contact: menu!='contacts'}">
+            <p>AJOUTER</p>
+        </div>
+
         <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
         <nav ng-controller="NavCtrl">
@@ -151,7 +155,14 @@
             <!-- Ajouter un contact-->
             <section id="ajout" class="section-ajout begin" ng-class="{ajout_move:deployajout==0}">
                 <div class="menu-ajout">
-
+                    <p>Votre code contact est</p>
+                    <div class="code">
+                        <p id="code">ZK9D7F</p>
+                    </div>
+                    <p>Ajoutez un contact grâce à son code :</p>
+                    <div>
+                        <input type="text" maxlength="6">
+                    </div>
                 </div>
             </section>
         </footer>

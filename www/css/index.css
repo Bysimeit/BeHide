@@ -523,3 +523,11 @@ nav {
     margin-right: auto;
     background: #68D1FE;
 }
+
+.menu-ajout p {
+    font-weight: 700;
+}
+
+.add_contact{
+    display: none;
+}
