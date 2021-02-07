@@ -52,18 +52,9 @@
         <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
         <nav ng-controller="NavCtrl">
-            <div class="nav-rond-left">
-                <a href="#conversations" ng-click="menu='conversations'" ng-class="{active: menu=='conversations'}"></a>
-                <img src="./img/icones/controls-chat-02512px.png" alt="Conv" height="50px">
-            </div>
-            <div class="nav-rond-center">
-                <a href="#appels" ng-click="menu='appels'" ng-class="{active: menu=='appels'}"></a>
-                <img src="./img/icones/" alt="Appels">
-            </div>
-            <div class="nav-rond-right">
-                <a href="#contacts" ng-click="menu='contacts'" ng-class="{active: menu=='contacts'}"></a>
-                <img src="./img/icones/controls-editor-contacts512px.png" alt="Contacts" height="50px">
-            </div>
+            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations'" ng-class="{active: menu=='conversations'}"></a>
+            <a href="#appels" class="nav-rond-center" ng-click="menu='appels'" ng-class="{active: menu=='appels'}"></a>
+            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts'" ng-class="{active: menu=='contacts'}"></a>
         </nav>
 
         <script src="../js/jquery.js"></script>
