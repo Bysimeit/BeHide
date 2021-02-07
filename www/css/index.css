@@ -152,7 +152,6 @@ body {
 }
 .scrollingon {
     transform: translate3d(0, 32.5%, 0);
-    top: 160px; left: 0; bottom: 195px; right: 0;
 }
 .scrollingoff {
     transform: translate3d(0, 0, 0);
