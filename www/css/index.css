@@ -43,6 +43,7 @@
 * {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
