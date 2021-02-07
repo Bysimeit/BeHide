@@ -1,5 +1,6 @@
 function Menu($scope) {
     $scope.panel = 1;
+    $scope.deployprofil = 1;
 }
 
 function changeBegin(){

@@ -217,3 +217,71 @@ nav {
 .active {
     border: 3px solid #1C92FF;
 }
+
+.cache {
+    z-index: -1;
+}
+
+.section-profil {
+    background-color: #E2FDFF;
+    z-index: 1;
+    transition-duration: .5s;
+}
+
+.large-title {
+    top: 0; left: 0; right: 0;
+    background: #00ABB6;
+    width: auto;
+    height: 75px;
+    border-radius: 25px;
+    color: #FFFF;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.down {
+    transform: translate3d(0, 1000%, 0);
+}
+
+.base {
+    transform: translate3d(0, 0, 0);
+}
+
+.menubutton {
+    position: absolute;
+    top: 0;
+    height: 300px;
+}
+
+.trousseau {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FE8C68;
+}
+
+.deconnecter {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FF2C2C;
+}
+
+.supprimer {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FF2C2C;
+}
+
+.retour {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #68D1FE;
+}
