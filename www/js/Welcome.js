@@ -44,7 +44,7 @@ if (heure > 22 || heure < 5){
 
 //Matin
 if (heure > 5 && heure < 12){
-    var random = Math.floor(Math.random() * 3);
+    var random = Math.floor(Math.random() * 4);
 
     if (random == 0){
         document.getElementById("welcome").innerHTML = "Bonjour Paul 😉"
@@ -56,6 +56,12 @@ if (heure > 5 && heure < 12){
 
     else if (random == 2){
         document.getElementById("welcome").innerHTML = "Une belle journée !!!"
+    }
+
+    else if (random == 3){
+        document.getElementById("welcome").classList.remove("message");
+        document.getElementById("welcome").classList.add("messagev2");
+        document.getElementById("welcome").innerHTML = "Vous avez passé une belle journée ?"
     }
 }
 
