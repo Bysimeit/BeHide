@@ -201,7 +201,7 @@ body {
     transition-duration: .5s;
 }
 .scrollingon {
-    transform: translate3d(0, 32.5%, 0);
+    transform: translate3d(0, 155px, 0);
     
 }
 .scrollingoff {
@@ -321,7 +321,9 @@ nav {
 .case-nickname {
     position: absolute;
     background: rgba(255, 255, 255, 0.65);
-    top: 160px; left: 35px; right: 50px;
+    top: 160px; left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
     height: 50px;
     width: 280px;
     border-radius: 25px;
@@ -348,7 +350,9 @@ nav {
 .optionvu {
     position: absolute;
     background: rgba(255, 255, 255, 0.65);
-    top: 220px; left: 35px; right: 50px;
+    top: 220px; left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
     height: 170px;
     width: 280px;
     border-radius: 25px;
@@ -548,4 +552,8 @@ nav {
 
 .add_contact{
     display: none;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
 }

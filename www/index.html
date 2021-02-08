@@ -52,7 +52,7 @@
             </div>
         </header>
 
-        <div class="Ajouter_contact" ng-hide="menu != 'contacts'" ng-click="deployajout=0">
+        <div class="Ajouter_contact" ng-hide="menu == 'contacts'" ng-click="deployajout=0">
             <p>AJOUTER</p>
         </div>
 
@@ -159,9 +159,17 @@
                     <div class="code">
                         <p id="code">ZK9D7F</p>
                     </div>
-                    <p>Ajoutez un contact grâce à son code :</p>
-                    <div>
-                        <input type="text" maxlength="6">
+                    <div class="Ajout-de-contact">
+                        <p>Ajoutez un contact grâce</p><p>à son code :</p>
+                        <div class="codev2">
+                            <input class="zone-ajout" type="text" maxlength="6" placeholder="Code">
+                        </div>
+                    </div>
+                    <div class="Valider-button">
+                        <p>Valider</p>
+                    </div>
+                    <div class="Retour-button" ng-click="deployajout=1">
+                        <p>Retour</p>
                     </div>
                 </div>
             </section>
