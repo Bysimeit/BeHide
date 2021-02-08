@@ -1,10 +1,11 @@
 function Menu($scope) {
+    $scope.menu = 'conversations'; // Entoure le bouton conversation lors de l'arrivée
     $scope.panel = 1;
     $scope.deployprofil = 1;
     $scope.deploysupport = 1;
     $scope.deployapropos = 1;
     $scope.deployajout = 1;
-    $scope.isContact = 0;
+    $scope.deploycontact = 1;
 }
 
 function changeBegin(){
