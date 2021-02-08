@@ -119,9 +119,9 @@ body {
 
 .font-pp {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 15px; top: 15px;
+    width: 90px;
+    height: 90px;
+    left: 10px; top: 10px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 50%;
 }
@@ -129,7 +129,7 @@ body {
     position: absolute;
     width: 75px;
     height: 75px;
-    left: 2.5px; top: 2.5px;
+    left: 6.5px; top: 6.5px;
     border-radius: 50%;
 }
 
@@ -168,14 +168,31 @@ body {
 .message {
     display:inline-block;
     position: absolute;
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 40px;
     padding-right: 10px;
     padding-left: 10px;
-    bottom: 10px; top: 35px; left: 110px;
+    bottom: 10px; top: 35px; left: 105px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 88px;
     margin: 0;
+    font-size: 22px;
+}
+
+.messagev2 {
+    display:inline-block;
+    position: absolute;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    bottom: 10px; top: 25px; left: 105px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    margin: 0;
+    font-size: 22px;
+    width: 60%;
+    height: 25px;
 }
 
 .view {

@@ -32,6 +32,8 @@ if (heure > 22 || heure < 5){
     }
     
     else if (random == 1){
+        document.getElementById("welcome").classList.remove("message");
+        document.getElementById("welcome").classList.add("messagev2");
         document.getElementById("welcome").innerHTML = "Je vais aller me coucher 😄"
     }
 
@@ -62,6 +64,8 @@ if (heure > 12 && heure <= 17){
     var random = Math.floor(Math.random() * 3);
 
     if (random == 0){
+        document.getElementById("welcome").classList.remove("message");
+        document.getElementById("welcome").classList.add("messagev2");
         document.getElementById("welcome").innerHTML = "Comment allez vous ? 😄"
     }
     

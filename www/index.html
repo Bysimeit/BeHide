@@ -52,7 +52,7 @@
             </div>
         </header>
 
-        <div class="Ajouter_contact" ng-click="deployajout=0" ng-class="{add_contact: menu!='contacts'}">
+        <div class="Ajouter_contact" ng-click="deployajout=0" ng-hide="menu!='contacts'">
             <p>AJOUTER</p>
         </div>
 
@@ -61,7 +61,7 @@
         <nav ng-controller="NavCtrl">
             <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations'" ng-class="{active: menu=='conversations'}"></a>
             <a href="#appels" class="nav-rond-center" ng-click="menu='appels'" ng-class="{active: menu=='appels'}"></a>
-            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts'" ng-class="{active: menu=='contacts'}"></a>
+            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts'; nimp();" ng-class="{active: menu=='contacts'}"></a>
         </nav>
 
         <footer>
