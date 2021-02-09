@@ -28,7 +28,8 @@
 
     background: #68D1FE;
     border-radius: 10px;
-    z-index: 50;
+    z-index: 5;
+    transition: .5s;
 }
 
 .Ajouter_contact p{
