@@ -241,6 +241,7 @@ nav {
     bottom: 25px;
     width: 100vw;
     height: 75px;
+    left: 0; right: 0;
 }
 
 .nav-rond-left {
