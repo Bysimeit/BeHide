@@ -28,7 +28,7 @@
 
     background: #68D1FE;
     border-radius: 10px;
-    z-index: 5;
+    z-index: 1;
     transition: .5s;
 }
 
