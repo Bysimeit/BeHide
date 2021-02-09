@@ -168,7 +168,7 @@
 }
 
 .photo-contact{
-    width: 135px;
+    width: 125px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -178,8 +178,8 @@
 }
 
 .style-photo-contact{
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -191,8 +191,16 @@
 .case-image{
     top: 10px;
     left: 10px;
-    width: 150px; height: 150px;
+    width: 140px; height: 140px;
     position: absolute;
+}
+
+.nom-contact{
+    position: absolute;
+    font-size: 30px;
+    left: 170px;
+    top: 30px;
+    font-weight: 700;
 }
 
 .noscroll{
