@@ -163,8 +163,13 @@
 }
 
 .apparition-contact{
-    animation-duration: .5s;
+    animation-duration: .2s;
     animation-name: scaling;
+}
+
+.disparition-contact{
+    animation-duration: .2s;
+    animation-name: scalinginverse;
 }
 
 .photo-contact{
@@ -203,6 +208,23 @@
     font-weight: 700;
 }
 
+.pos-statut{
+    position: absolute;
+    left: 0; right: 0;
+    top: 0px;
+    width: 90%;
+}
+
+.petit-message{
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0; right: 0;
+    width: 90%;
+    top: 150px;
+}
+
 .noscroll{
     overflow: hidden;
 }
@@ -210,30 +232,76 @@
 .Bouton-message{
     top: 240px;
 
-    height: 50px;
+    height: 55px;
     width: 90%;
     position: absolute;
     margin:auto;
     left: 0; right: 0;
-    background-color: #00ABB6;
+    background-color: #68D1FE;
+    border-radius: 20px;
+}
+
+.Bouton-message p{
+    margin-top: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .image-message-contact{
     width: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .Bouton-appel{
     top: 320px;
 
-    height: 50px;
+    height: 55px;
     width: 90%;
     position: absolute;
     margin:auto;
     left: 0; right: 0;
+    background-color: #68D1FE;
+    border-radius: 20px;
+}
+
+.Bouton-appel p{
+    margin-top: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
 }
 
 .image-appel-contact{
     width: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.Bouton-retour-contact{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 55px;
+    width: 90%;
+    top: 500px;
+}
+
+.Bouton-retour-contact{
+    margin-top: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
 }
 
 @keyframes scaling{
@@ -245,5 +313,17 @@
     to {
         width: 100%;
         height: 100%;
+    }
+}
+
+@keyframes scalinginverse{
+    from{
+        width: 100%;
+        height: 100%;
+    }
+
+    to {
+        width: 1%;
+        height: 1%;
     }
 }
