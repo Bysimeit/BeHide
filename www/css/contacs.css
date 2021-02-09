@@ -207,6 +207,35 @@
     overflow: hidden;
 }
 
+.Bouton-message{
+    top: 240px;
+
+    height: 50px;
+    width: 90%;
+    position: absolute;
+    margin:auto;
+    left: 0; right: 0;
+    background-color: #00ABB6;
+}
+
+.image-message-contact{
+    width: 40px;
+}
+
+.Bouton-appel{
+    top: 320px;
+
+    height: 50px;
+    width: 90%;
+    position: absolute;
+    margin:auto;
+    left: 0; right: 0;
+}
+
+.image-appel-contact{
+    width: 40px;
+}
+
 @keyframes scaling{
     from{
         width: 1%;
