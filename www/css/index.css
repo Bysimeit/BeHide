@@ -575,3 +575,7 @@ nav {
 a{
     cursor: none;
 }
+
+input:focus {
+    outline: none;
+}
