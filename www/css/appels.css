@@ -61,12 +61,18 @@
     left: 65px;
 }
 
-.messages{
+.messages-appel{
     position: absolute;
-    right: 35px;
+    right: 7%;
     bottom: 17px;
 }
 
 .space_appel{
-    height: 25%;
+   height: 25%;
+}
+
+.logo-appel{
+    right: 18%;
+    top: 18px;
+    position: absolute;
 }

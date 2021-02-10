@@ -64,7 +64,7 @@ body {
 
 .copyright {
     position: absolute;
-    right: 10px; bottom: 0; top: 0;
+    right: 10px; top: -1px;
     font-size: 12px;
 }
 
@@ -142,7 +142,7 @@ body {
     position: absolute;
     width: 75px;
     height: 75px;
-    left: 6.5px; top: 6.5px;
+    left: 7.5px; top: 7.5px;
     border-radius: 50%;
 }
 
@@ -570,4 +570,8 @@ nav {
 
 ::-webkit-input-placeholder {
     text-align: center;
+}
+
+a{
+    cursor: none;
 }
