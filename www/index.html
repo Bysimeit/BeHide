@@ -11,6 +11,7 @@
     </head>
     <body ng-controller="Menu">
         <div class="form">
+            <div class="mise-en-page"> 
             <img src="css/icones/logo.png" class="logo">
             <div class="case-email">
                 <input type="email" class="input-email" placeholder="Adresse mail">
@@ -24,36 +25,37 @@
             <div class="btn-position-inscription">
                 <input type="button" class="btn-inscription" value="Inscription" ng-click="deployinscription=0">
             </div>
+            </div>
         </div>
 
         <section id="inscription" class="section-inscription begin" ng-class="{down:deployinscription==1, base:deployinscription==0}">
             <div class="large-title">
                 <strong>BeHide</strong>
             </div>
-            <div>
-                <p class="tiny-title">Inscription :</p>
-                <div class="case-nickname">
+            <div class="formulaire-inscription">
+                <p class="title-inscription">Inscription :</p>
+                <div class="case-other-input">
                     <p class="nickname">Nom :</p>
                     <input type="text" class="input-nickname name-input left-input" placeholder="Écrivez ici">
                 </div>
-                <div class="case-nickname firstname">
+                <div class="case-other-input firstname">
                     <p class="nickname">Prénom :</p>
                     <input type="text" class="input-nickname firstname-input left-input" placeholder="Écrivez ici">
                 </div>
-                <div class="case-nickname email">
+                <div class="case-other-input email">
                     <p class="nickname ajust">Adresse mail :</p>
                     <input type="email" class="input-nickname email-input" placeholder="Écrivez ici">
                 </div>
-                <div class="case-nickname password">
+                <div class="case-other-input password">
                     <p class="nickname ajust">Mot de passe :</p>
                     <input type="password" class="input-nickname password-input" placeholder="Écrivez ici">
                 </div>
-                <div class="case-nickname password2">
+                <div class="case-other-input password2">
                     <p class="nickname ajust">Confirmer mot de passe :</p>
                     <input type="password" class="input-nickname password2-input" placeholder="Écrivez ici">
                 </div>
             </div>
-            <div class="menubutton min-height">
+            <div class="menubutton-connexion min-height">
                 <div class="menu-choix confirm-inscription">
                     <strong>S'inscrire</strong>
                 </div>
