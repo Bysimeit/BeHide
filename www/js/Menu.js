@@ -6,7 +6,6 @@ function Menu($scope) {
     $scope.deployapropos = 1; // Permet le déploiement de la fiche à propos
     $scope.deployajout = 1; // Permet le déploiement de l'ajout contact
     $scope.deploycontact = 1; // Permet le déploiement de la fiche contact
-    $scope.deployinscription = 1; // Permet le déploiement de la fiche inscription
 }
 
 function changeBegin() {
@@ -15,7 +14,6 @@ function changeBegin() {
     document.getElementById("support").classList.remove("begin");
     document.getElementById("apropos").classList.remove("begin");
     document.getElementById("ajout").classList.remove("begin");
-    document.getElementById("inscription").classList.remove("begin");
 }
 
 setTimeout(changeBegin,100);

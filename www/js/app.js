@@ -1,5 +1,5 @@
 document.addEventListener('deviceready', function () {
-    // App prête
+    navigator.splashscreen.hide();
 }, false);
 
 var app = angular.module('app', []);
