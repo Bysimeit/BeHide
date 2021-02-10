@@ -100,10 +100,80 @@ body {
     right: 5px;
 }
 
+.left-input::-webkit-input-placeholder {
+    text-align: left;
+}
+
+.name-input {
+    left: 70px;
+    width: 72%;
+    text-align: left;
+}
+
 .firstname {
     margin-top: 55px;
 }
 
+.firstname-input {
+    left: 90px;
+    width: 65%;
+}
+
+.ajust {
+    top: 12.5px;
+}
+
 .email {
     margin-top: 110px;
+    height: 80px;
+}
+
+.email-input {
+    left: 0; right: 0;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.password {
+    margin-top: 165px;
+    height: 80px;
+    top: 190px;
+}
+
+.password-input {
+    left: 0; right: 0;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.password2 {
+    margin-top: 220px;
+    height: 80px;
+    top: 220px;
+}
+
+.password2-input {
+    left: 0; right: 0;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.confirm-inscription {
+    position: absolute;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FF2C2C;
+    margin-top: 100px;
+}
+
+.retour-inscription {
+    margin-top: 140px;
+}
+
+.min-height {
+    z-index: -1;
 }

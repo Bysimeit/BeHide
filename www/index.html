@@ -34,19 +34,30 @@
                 <p class="tiny-title">Inscription :</p>
                 <div class="case-nickname">
                     <p class="nickname">Nom :</p>
-                    <input type="text" class="input-nickname" placeholder="Écrivez ici">
+                    <input type="text" class="input-nickname name-input left-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-nickname firstname">
                     <p class="nickname">Prénom :</p>
-                    <input type="text" class="input-nickname" placeholder="Écrivez ici">
+                    <input type="text" class="input-nickname firstname-input left-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-nickname email">
-                    <p class="nickname">Adresse mail :</p>
-                    <input type="text" class="input-nickname" placeholder="Écrivez ici">
+                    <p class="nickname ajust">Adresse mail :</p>
+                    <input type="email" class="input-nickname email-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-nickname password">
+                    <p class="nickname ajust">Mot de passe :</p>
+                    <input type="password" class="input-nickname password-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-nickname password2">
+                    <p class="nickname ajust">Confirmer mot de passe :</p>
+                    <input type="password" class="input-nickname password2-input" placeholder="Écrivez ici">
                 </div>
             </div>
-            <div class="menubutton">
-                <div class="menu-choix retour retour-profil" ng-click="deployinscription=1">
+            <div class="menubutton min-height">
+                <div class="menu-choix confirm-inscription">
+                    <strong>S'inscrire</strong>
+                </div>
+                <div class="menu-choix retour retour-inscription" ng-click="deployinscription=1">
                     <strong>Annuler</strong>
                 </div>
             </div>
