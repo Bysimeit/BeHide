@@ -5,61 +5,67 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" href="../Police/police.css">
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/accueil.css">
+        <link rel="stylesheet" href="css/connexion.css">
         <title>BeHide</title>
     </head>
-    <body>
-        <header class="header">
-            <p class="copyright">&copy;BeHide</p>
-            <div class="off">
-                <div class="font-pp">
-                    <!-- Photo de profil -->
-                    <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
+    <body ng-controller="Menu">
+        <div class="form">
+            <img src="css/icones/logo.png" class="logo">
+            <div class="case-email">
+                <input type="email" class="input-email" placeholder="Adresse mail">
+            </div>
+            <div class="case-password">
+                <input type="password" class="input-password" placeholder="Mot de passe">
+            </div>
+            <div class="btn-position-connexion">
+                <a href="main.html"><input type="button" class="btn-connexion" value="Connexion"></a>
+            </div>
+            <div class="btn-position-inscription">
+                <input type="button" class="btn-inscription" value="Inscription" ng-click="deployinscription=0">
+            </div>
+        </div>
+
+        <section id="inscription" class="section-inscription begin" ng-class="{down:deployinscription==1, base:deployinscription==0}">
+            <div class="large-title">
+                <strong>BeHide</strong>
+            </div>
+            <div>
+                <p class="tiny-title">Inscription :</p>
+                <div class="case-nickname">
+                    <p class="nickname">Nom :</p>
+                    <input type="text" class="input-nickname name-input left-input" placeholder="Écrivez ici">
                 </div>
-                <div class="bienvenue">
-                    <!-- Mot gentil + prénom de l'utilisateur -->
-                    <p class="message">Bonsoir Paul</p> <!-- Le prénom de la personne est à récupérer dans la bdd -->
+                <div class="case-nickname firstname">
+                    <p class="nickname">Prénom :</p>
+                    <input type="text" class="input-nickname firstname-input left-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-nickname email">
+                    <p class="nickname ajust">Adresse mail :</p>
+                    <input type="email" class="input-nickname email-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-nickname password">
+                    <p class="nickname ajust">Mot de passe :</p>
+                    <input type="password" class="input-nickname password-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-nickname password2">
+                    <p class="nickname ajust">Confirmer mot de passe :</p>
+                    <input type="password" class="input-nickname password2-input" placeholder="Écrivez ici">
                 </div>
             </div>
-            <div class="on font-menu">
-                <div class="font-pp">
-                    <!-- Photo de profil -->
-                    <img class="pp" src="../img/default-profile.png"> <!-- Comme lien, mettre une image par défaut qui devra être dans l'hébergeur -->
+            <div class="menubutton min-height">
+                <div class="menu-choix confirm-inscription">
+                    <strong>S'inscrire</strong>
                 </div>
-                <div>
-                    <input class="statut" type="text" placeholder="Statut"> <!-- Le prénom de la personne est à récupérer dans la bdd -->
-                    <a href="#">
-                        <div class="menu-choix profil">
-                            <strong>PROFIL</strong>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="menu-choix support">
-                            <strong>SUPPORT</strong>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="menu-choix apropos">
-                            <strong>À PROPOS</strong>
-                        </div>
-                    </a>
+                <div class="menu-choix retour retour-inscription" ng-click="deployinscription=1">
+                    <strong>Annuler</strong>
                 </div>
             </div>
-        </header>
-        
-        <section class="view" ng-view></section>
+        </section>
 
-        <nav ng-controller="NavCtrl">
-            <a href="#conversations" ng-click="menu='conversations'" class="nav-rond-left" ng-class="{active: menu=='conversations'}"></a>
-            <a href="#appels" ng-click="menu='appels'" class="nav-rond-center" ng-class="{active: menu=='appels'}"></a>
-            <a href="#contacts" ng-click="menu='contacts'" class="nav-rond-right" ng-class="{active: menu=='contacts'}"></a>
-        </nav>
-
-        <script src="../js/jquery.js"></script>
-        <script src="../js/angular.js"></script>
-        <script src="../js/NavCtrl.js"></script>
-        <script src="../js/app.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/connexion.js"></script>
     </body>
 </html>
