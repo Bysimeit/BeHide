@@ -211,11 +211,10 @@ body {
 }
 
 .menubutton-connexion {
-    position: relative;
+    position: absolute;
     bottom: 15px;
     height: 132px;
     width: 100%;
-    margin-top: 35%;
 }
 
 .formulaire-inscription{
@@ -230,3 +229,8 @@ body {
     font-size: 20px;
 }
 
+@media screen and (max-height: 673px){
+    .menubutton-connexion{
+        position: relative;
+    }
+}
