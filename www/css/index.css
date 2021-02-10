@@ -508,6 +508,7 @@ nav {
 .base {
     transform: translate3d(0, 0, 0);
     transition-duration: .5s;
+    z-index: 3;
 }
 
 .base_support {
