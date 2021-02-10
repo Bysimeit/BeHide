@@ -10,4 +10,4 @@ app.config(function($routeProvider) {
         .when('/appels', {templateUrl: 'pages/appels.html'})
         .when('/contacts', {templateUrl: 'pages/contacts.html'})
         .otherwise({redirectTo: '/conversations'})
-})
+});

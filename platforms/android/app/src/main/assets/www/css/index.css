@@ -43,11 +43,14 @@
 * {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
     background-color: #E2FDFF;
     color: black;
+    overflow: hidden;
+    margin: 5px;
 }
 
 .header {
@@ -55,35 +58,55 @@ body {
     top: 0; left: 0; right: 0;
 }
 .off {
-    height: 100px;
+    display: block;
+    transform: translate3d(0, 0, 0);
 }
 
 .copyright {
     position: absolute;
-    right: 10px; bottom: 0; top: 0;
+    right: 10px; top: -1px;
     font-size: 12px;
+}
+
+.begin {
+    display: none;
 }
 
 
 .on {
-    height: 240px;
+    transform: translate3d(0, -105%, 0);
 }
 .font-menu {
     position: absolute;
+    height: 240px;
     background: #00ABB6;
     top: 10px; left: 10px; right: 10px; bottom: 10px;
     z-index: 5;
     border-radius: 20px;
+    transition-duration: .5s;
 }
 
-.statut {
+.statut-font {
     position: absolute;
     width: 150px;
-    height: 45px;
+    height: 50px;
     bottom: 0; top: 35px; left: 110px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 88px;
     border-color: transparent;
+}
+.statut {
+    position: absolute;
+    width: 140px;
+    height: 45px;
+    bottom: 0; top: 35px; left: 110px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 88px;
+    border-color: transparent;
+    text-align: center;
+}
+.statut::placeholder {
+    font-size: 20px;
 }
 
 .menu-choix {
@@ -109,9 +132,9 @@ body {
 
 .font-pp {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 15px; top: 15px;
+    width: 90px;
+    height: 90px;
+    left: 10px; top: 10px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 50%;
 }
@@ -119,28 +142,83 @@ body {
     position: absolute;
     width: 75px;
     height: 75px;
-    left: 2.5px; top: 2.5px;
+    left: 7.5px; top: 7.5px;
     border-radius: 50%;
 }
 
-.bienvenue {
+.img_added{
     position: absolute;
-    width: 150px;
-    height: 45px;
-    bottom: 0; top: 35px; left: 110px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    left: 15px; top: 15px;
+    background-image: url(../img/default-profile.png);
+    background-size: contain;
+}
+
+.degrade{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    left: 2.5px; top: 2.5px;
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 0.10), rgba(51, 51, 51, 0.7) 100%);
+}
+
+.add_pic{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 20px; top: 20px;
+    border-radius: 0%;
+}
+
+.cancel{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.message {
+    display:inline-block;
+    position: absolute;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    bottom: 10px; top: 35px; left: 105px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 88px;
+    margin: 0;
+    font-size: 22px;
 }
-.message {
-    display: table-cell;
-    padding: 10px;
-    padding-left: 17px;
-    vertical-align: middle;
+
+.messagev2 {
+    display:inline-block;
+    position: absolute;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    bottom: 10px; top: 25px; left: 105px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    margin: 0;
+    font-size: 22px;
+    width: 60%;
+    height: 25px;
 }
 
 .view {
     position: absolute;
     top: 100px; left: 0; bottom: 75px; right: 0;
+    transition-duration: .5s;
+}
+.scrollingon {
+    transform: translate3d(0, 155px, 0);
+    
+}
+.scrollingoff {
+    transform: translate3d(0, 0, 0);
 }
 
 .titre {
@@ -151,10 +229,11 @@ body {
 
 .fond-screen {
     position: absolute;
-    left: 25px; right: 25px; top: 40px;
-    height: 85%;
+    left: 5px; right: 5px; top: 40px;
+    height: 120%;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 25px;
+    overflow: scroll;
 }
 
 nav {
@@ -162,39 +241,341 @@ nav {
     bottom: 25px;
     width: 100vw;
     height: 75px;
+    left: 0; right: 0;
 }
 
 .nav-rond-left {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     bottom: -10px; left: 25px;
-    background: #68D1FE;
+    background: center / contain no-repeat  #68D1FE url(./icones/chat\ \(1\).png);
     box-sizing: border-box;
     border-radius: 50%;
+    background-size: 60%;
 }
 .nav-rond-center {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     bottom: -10px;
     left: 0; right: 0;
     margin-left: auto;
     margin-right: auto;
-    background: #68D1FE;
+    background: center / contain no-repeat  #68D1FE url(./icones/phone-call\ \(1\).png);
     box-sizing: border-box;
     border-radius: 50%;
+    background-size: 60%;
 }
 .nav-rond-right {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     bottom: -10px; right: 25px;
-    background: #68D1FE;
+    background:  center / contain no-repeat  #68D1FE url(./icones/contacts\ \(1\).png);
     box-sizing: border-box;
     border-radius: 50%;
+    background-size: 55%;
 }
 
 .active {
     border: 3px solid #1C92FF;
+}
+
+.cache {
+    z-index: -1;
+}
+
+.page_profil{
+    position: relative;
+    height: 100%;
+}
+
+.section-profil {
+    background-color: #E2FDFF;
+    z-index: 1;
+    position: relative;
+    height: 100vh;
+}
+
+.section-support {
+    background-color: #E2FDFF;
+    z-index: 2;
+    position: relative;
+    height: 100vh;
+}
+
+.section-apropos {
+    background-color: #E2FDFF;
+    z-index: 3;
+    position: relative;
+    height: 100vh;
+}
+
+.large-title {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: #00ABB6;
+    width: auto;
+    height: 75px;
+    border-radius: 25px;
+    color: #FFFF;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.tiny-title {
+    position: absolute;
+    padding-top: 100px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.case-nickname {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.65);
+    top: 160px; left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 280px;
+    border-radius: 25px;
+}
+
+.nickname {
+    position: absolute;
+    margin: 0 0;
+    bottom: 12.5px;
+    left: 20px;
+}
+
+.input-nickname {
+    background-color: transparent;
+    color: black;
+    position: absolute;
+    margin: 0 0;
+    bottom: 10.5px;
+    left: 100px;
+    width: 55%;
+    border-color: transparent;
+}
+
+.optionvu {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.65);
+    top: 220px; left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 170px;
+    width: 280px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.titlevu {
+    text-align: center;
+}
+
+.textvu {
+    top: 15px;
+    font-size: 12px;
+}
+
+.statutvu {
+    top: 100px;
+    text-decoration: underline;
+}
+
+.retour-profil {
+    margin-top: 10px;
+}
+
+.supportinfos {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.65);
+    top: 165px;
+    right: 20px; left: 20px;
+    border-radius: 25px;
+}
+
+.title-support {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.under-support {
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+
+.img-email {
+    position: absolute;
+    height: 35px;
+    margin-left: 20px;
+}
+
+.emailinfo {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.img-www {
+    position: absolute;
+    height: 35px;
+    margin-left: 20px;
+}
+
+.siteinfo {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.img-github {
+    position: absolute;
+    height: 35px;
+    margin-left: 20px;
+}
+
+.githubinfo {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.retour-support {
+    margin-top: 100px;
+}
+
+.aproposinfos {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.65);
+    top: 165px;
+    right: 20px; left: 20px;
+    border-radius: 25px;
+}
+
+.title-apropos {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.text-apropos {
+    font-size: 10px;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+
+.secondtitle-apropos {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.secondtext-apropos {
+    font-size: 10px;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+
+.retour-apropos {
+    margin-top: 120px;
+}
+
+.down {
+    transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
+}
+
+.down_support {
+    transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
+}
+
+.down_apropos {
+    transform: translate3d(0, 1000%, 0);
+    transition-duration: 2s;
+}
+
+.base {
+    transform: translate3d(0, 0, 0);
+    transition-duration: .5s;
+}
+
+.base_support {
+    transform: translate3d(0, -100%, 0);
+    transition-duration: .5s;
+}
+
+.base_apropos {
+    transform: translate3d(0, -200%, 0);
+    transition-duration: .5s;
+}
+
+.menubutton {
+    position: absolute;
+    bottom: 15px;
+    height: 180px;
+    width: 100%;
+}
+
+.trousseau {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FE8C68;
+}
+
+.deconnecter {
+    position:  relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FF2C2C;
+    margin-top: 10px;
+}
+
+.supprimer {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FF2C2C;
+    margin-top: 10px;
+}
+
+.retour {
+    position: relative;
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #68D1FE;
+}
+
+.menu-ajout p {
+    font-weight: 700;
+}
+
+.add_contact{
+    display: none;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+a{
+    cursor: none;
+}
+
+input:focus {
+    outline: none;
 }
