@@ -1,3 +1,5 @@
+deploymsg = 0;
+
 function DisplayConv(){
     function display(){
         document.getElementById("conv-message").classList.remove("slidetoleft");
@@ -15,3 +17,40 @@ function HideConv(){
     document.getElementById("conv-message").classList.add("slidetoleft");
     setTimeout(hide,450);
 }
+
+function OptOn(){
+    function widthStatut(){
+        document.getElementById("statut-msg").classList.add("width-statut")
+    }
+    document.getElementById("body-message").classList.add("body_change_msg");
+    document.getElementById("name-msg").classList.add("nom_change_msg");
+    document.getElementById("button-msg-id").classList.add("move-button");
+    document.getElementById("statut-msg").classList.add("statut-msg-apparition");
+    setTimeout(widthStatut, 900);
+}
+
+function OptOff(){
+    function widthStatut(){
+        document.getElementById("statut-msg").classList.remove("width-statut")
+        document.getElementById("statut-msg").classList.remove("statut-msg-apparitionv2");
+    }
+    document.getElementById("body-message").classList.remove("body_change_msg");
+    document.getElementById("name-msg").classList.remove("nom_change_msg");
+    document.getElementById("button-msg-id").classList.remove("move-button");
+    document.getElementById("statut-msg").classList.remove("statut-msg-apparition");
+    document.getElementById("statut-msg").classList.add("statut-msg-apparitionv2");
+    setTimeout(widthStatut, 900);
+}
+
+function ChangeStateMsg(){
+    if(deploymsg==0){
+        OptOn();
+        deploymsg=1;
+    }
+
+    else if(deploymsg==1){
+        OptOff();
+        deploymsg=0;
+    }
+}
+
