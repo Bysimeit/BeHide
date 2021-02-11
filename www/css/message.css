@@ -7,6 +7,7 @@
     left: 0;
     z-index: 1;
     overflow: scroll;
+    transition-duration: .2s;
 }
 
 .header-message{
@@ -73,7 +74,7 @@
 
 .scroll-message {
     overflow: scroll;
-    height: 90%;
+    height: 100%;
 }
 
 .space-message{
@@ -100,18 +101,24 @@
     margin: auto;
 }
 
-.zone-input-message input {
+.zone-input-message textarea {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     left: 7px;
     position: absolute;
     top: 0; bottom: 0;
     width: 92%;
+    resize: none;
+    cursor: none;
+    outline: none;
 }
 
-.zone-input-message input::-webkit-input-placeholder{
+.zone-input-message textarea::-webkit-input-placeholder{
     text-align: left;
     color: white;
+    position: absolute;
+    padding-top: 6px;
+    padding-left: 10px;
 }
 
 .interaction-message img{
@@ -123,7 +130,7 @@
 
 .message-received{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .message-received p{
@@ -135,6 +142,7 @@
     border-radius: 20px;
     font-size: 16px;
     margin-bottom: 0;
+    margin-top: 0;
 
 }
 
@@ -142,11 +150,13 @@
     margin-top: 3px;
     margin-left: 20px;
     font-size: 11px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .message-send{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .message-send div{
@@ -164,6 +174,7 @@
     border-radius: 20px;
     font-size: 16px;
     margin-bottom: 0;
+    margin-top: 0;
     position: relative;
     right: 10px;
 }
@@ -174,6 +185,20 @@
     margin-left: auto;
     font-size: 11px;
     width: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.last-message h1{
+    padding-bottom: 50px;
+}
+
+.slidetoleft{
+    transform: translate3d(100%, 0, 0)
+}
+
+.message-hide{
+    display: none;
 }
 
 @media screen and (max-height: 490px){
