@@ -28,6 +28,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <preference name="AutoHideSplashScreen" value="false"/>
-    <preference name="splashscreen" value="splash" />
+    <preference name="AutoHideSplashScreen" value="true"/>
+    <preference name="FadeSplashScreen" value="false"/>
+    <preference name="ShowSplashScreenSpinner" value="false"/>
 </widget>

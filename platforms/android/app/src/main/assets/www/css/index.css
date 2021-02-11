@@ -242,6 +242,7 @@ nav {
     width: 100vw;
     height: 75px;
     left: 0; right: 0;
+    z-index: 2;
 }
 
 .nav-rond-left {
@@ -449,9 +450,6 @@ nav {
     margin-top: 20px;
 }
 
-.retour-support {
-    margin-top: 100px;
-}
 
 .aproposinfos {
     position: absolute;
@@ -485,10 +483,6 @@ nav {
     padding-right: 5px;
 }
 
-.retour-apropos {
-    margin-top: 120px;
-}
-
 .down {
     transform: translate3d(0, 1000%, 0);
     transition-duration: 2s;
@@ -507,23 +501,41 @@ nav {
 .base {
     transform: translate3d(0, 0, 0);
     transition-duration: .5s;
+    z-index: 3;
+    overflow: scroll;
 }
 
 .base_support {
     transform: translate3d(0, -100%, 0);
     transition-duration: .5s;
+    overflow: scroll;
 }
 
 .base_apropos {
     transform: translate3d(0, -200%, 0);
     transition-duration: .5s;
+    overflow: scroll;
 }
 
 .menubutton {
     position: absolute;
-    bottom: 15px;
     height: 180px;
     width: 100%;
+    bottom: 0;
+}
+
+.menubutton2 {
+    position: absolute;
+    height: 65px;
+    width: 100%;
+    bottom: 0;
+}
+
+.menubutton3 {
+    position: absolute;
+    height: 65px;
+    width: 100%;
+    bottom: 0;
 }
 
 .trousseau {
@@ -578,4 +590,38 @@ a{
 
 input:focus {
     outline: none;
+}
+
+.corps-profil{
+    position: relative;
+    height: 420px;
+}
+
+.corps-support{
+    position: relative;
+    height: 400px;
+}
+
+.corps-apropos{
+    position: relative;
+    height: 520px;
+}
+
+
+@media screen and (max-height: 590px){
+    .menubutton{
+        position: relative;
+    }
+}
+
+@media screen and (max-height: 578px){
+    .menubutton3{
+        position: relative;
+    }
+}
+
+@media screen and (max-height: 490px){
+    .menubutton2{
+        position: relative;
+    }
 }
