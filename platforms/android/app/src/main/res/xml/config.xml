@@ -24,5 +24,14 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <splash density="hdpi" src="res/screen/android/splash-port-hdpi.png" />
+    <splash density="ldpi" src="res/screen/android/splash-port-ldpi.png" />
+    <splash density="mdpi" src="res/screen/android/splash-port-mdpi.png" />
+    <splash density="xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+    <splash density="xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+    <splash density="xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
 </widget>

@@ -72,7 +72,7 @@
                 <div class="large-title">
                     <strong>BeHide</strong>
                 </div>
-                <div>
+                <div class="corps-profil">
                     <p class="tiny-title">Profil :</p>
                     <div class="case-nickname">
                         <p class="nickname">Surnom :</p>
@@ -86,70 +86,76 @@
                         <p class="statutvu">Actuellement : None</p> <!-- Mettre à jour le statut si activé ou non -->
                     </div>
                 </div>
-                <div class="menubutton">
-                    <div class="menu-choix trousseau" ng-click="deployprofil=1">
-                        <strong>Changer le trousseau de clés</strong>
-                    </div>
-                    <div class="menu-choix deconnecter" ng-click="deployprofil=1">
-                        <strong>Se déconnecter</strong>
-                    </div>
-                    <div class="menu-choix supprimer" ng-click="deployprofil=1">
-                        <strong>Supprimer mon compte</strong>
-                    </div>
-                    <div class="menu-choix retour retour-profil" ng-click="deployprofil=1">
-                        <strong>Retour</strong>
+                <div>
+                    <div class="menubutton">
+                        <div class="menu-choix trousseau" ng-click="deployprofil=1">
+                            <strong>Changer le trousseau de clés</strong>
+                        </div>
+                        <div class="menu-choix deconnecter" ng-click="deployprofil=1">
+                            <strong>Se déconnecter</strong>
+                        </div>
+                        <div class="menu-choix supprimer" ng-click="deployprofil=1">
+                            <strong>Supprimer mon compte</strong>
+                        </div>
+                        <div class="menu-choix retour retour-profil" ng-click="deployprofil=1">
+                            <strong>Retour</strong>
+                        </div>
                     </div>
                 </div>
             </section>
             <!-- Support -->
             <section id="support" class="section-support begin" ng-class="{down_support:deploysupport==1, base_support:deploysupport==0}">
-                <div class="large-title">
-                    <strong>BeHide</strong>
+                <div class="corps-support">
+                    <div class="large-title">
+                        <strong>BeHide</strong>
+                    </div>
+                    <p class="tiny-title">Support :</p>
+                    <div class="supportinfos">
+                        <p class="title-support">Besoin d'aide ?</p>
+                        <p class="under-support">Nous somme joignable sur :</p>
+                        <img src="css/icones/letter.png" class="img-email">
+                        <p class="emailinfo"><a href="mailto:support@behide.be" class="link">support@behide.be</a></p>
+                        <img src="css/icones/world-wide-web.png" class="img-www">
+                        <p class="siteinfo"><a href="https://www.behide.be" class="link" target="_blank">behide.be</a></p>
+                        <img src="css/icones/github.png" class="img-github">
+                        <p class="githubinfo"><a href="https://github.com/Bysimeit/BeHide" class="link" target="_blank">github.com/Bysimeit/BeHide</a></p>
+                    </div>
                 </div>
-                <p class="tiny-title">Support :</p>
-                <div class="supportinfos">
-                    <p class="title-support">Besoin d'aide ?</p>
-                    <p class="under-support">Nous somme joignable sur :</p>
-                    <img src="css/icones/letter.png" class="img-email">
-                    <p class="emailinfo"><a href="mailto:support@behide.be" class="link">support@behide.be</a></p>
-                    <img src="css/icones/world-wide-web.png" class="img-www">
-                    <p class="siteinfo"><a href="https://www.behide.be" class="link" target="_blank">behide.be</a></p>
-                    <img src="css/icones/github.png" class="img-github">
-                    <p class="githubinfo"><a href="https://github.com/Bysimeit/BeHide" class="link" target="_blank">github.com/Bysimeit/BeHide</a></p>
-                </div>
-                <div class="menubutton">
-                    <div class="menu-choix retour retour-support" ng-click="deploysupport=1">
+                <div class="menubutton2">
+                    <div class="menu-choix retour" ng-click="deploysupport=1">
                         <strong>Retour</strong>
                     </div>
                 </div>
             </section>
             <!-- À propos -->
             <section id="apropos" class="section-apropos begin" ng-class="{down_apropos:deployapropos==1, base_apropos:deployapropos==0}">
-                <div class="large-title">
-                    <strong>BeHide</strong>
+                <div class="corps-apropos">
+                    <div class="large-title">
+                        <strong>BeHide</strong>
+                    </div>
+                    <p class="tiny-title">À propos :</p>
+                    <div class="aproposinfos">
+                        <p class="title-apropos">
+                            Qui sommes-nous ?
+                        </p>
+                        <p class="text-apropos">
+                            Sénéchal Julien et moi, Casano Simon, sommes deux étudiants en cours de bachelier dans le secteur informatique.<br>
+                            S. Julien en sécurité des systèmes.<br>
+                            C. Simon en informatique de gestion.
+                        </p>
+                        <p class="secondtitle-apropos">
+                            Pourquoi BeHide ?
+                        </p>
+                        <p class="secondtext-apropos">
+                            Suite à la polémique d'une célebre application de communication.
+                            Nous avons voulu créer à nos heures perdues une application qui possède comme grande atout de ne stocker que vos données sur votre téléphone.
+                            En effet, BeHide ne récupère en aucun cas vos messages privés ainsi que vos appels audio/vidéo.
+                            La vie privée fait l'objet d'une grande envergure chez BeHide.
+                        </p>
+                    </div>
                 </div>
-                <p class="tiny-title">À propos :</p>
-                <div class="aproposinfos">
-                    <p class="title-apropos">
-                        Qui sommes-nous ?
-                    </p>
-                    <p class="text-apropos">
-                        Sénéchal Julien et moi, Casano Simon, sommes deux étudiants en cours de bachelier dans le secteur informatique.<br>
-                        S. Julien en sécurité des systèmes.<br>
-                        C. Simon en informatique de gestion.
-                    </p>
-                    <p class="secondtitle-apropos">
-                        Pourquoi BeHide ?
-                    </p>
-                    <p class="secondtext-apropos">
-                        Suite à la polémique d'une célebre application de communication.
-                        Nous avons voulu créer à nos heures perdues une application qui possède comme grande atout de ne stocker que vos données sur votre téléphone.
-                        En effet, BeHide ne récupère en aucun cas vos messages privés ainsi que vos appels audio/vidéo.
-                        La vie privée fait l'objet d'une grande envergure chez BeHide.
-                    </p>
-                </div>
-                <div class="menubutton">
-                    <div class="menu-choix retour retour-apropos" ng-click="deployapropos=1">
+                <div class="menubutton3">
+                    <div class="menu-choix retour" ng-click="deployapropos=1">
                         <strong>Retour</strong>
                     </div>
                 </div>

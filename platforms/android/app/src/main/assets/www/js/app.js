@@ -1,6 +1,8 @@
-document.addEventListener('deviceready', function () {
-    // App prête
-}, false);
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    navigator.splashscreen.hide();
+}
 
 var app = angular.module('app', []);
 
