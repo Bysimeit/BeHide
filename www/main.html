@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/conversations.css">
         <link rel="stylesheet" href="css/appels.css">
         <link rel="stylesheet" href="css/contacs.css">
+        <link rel="stylesheet" href="css/message.css">
         <title>BeHide</title>
     </head>
     <body ng-controller="Menu">
@@ -182,6 +183,67 @@
                 </div>
             </section>
         </footer>
+
+        <!--Pages qui viennent de la droite-->
+        <section id="conv-message" class="fond-message">
+            <div class="header-message">
+                <div class="font-img-message">
+                    <img class="img-message" src="img/example.jpg" alt="PhotoProfil">
+                </div>
+                <div class="position-nom-message">
+                    <p>Julien Sénéchal</p>
+                </div>
+            </div>
+            <div class="body-message">
+
+                <div class="scroll-message">
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>Tu fais chier a spam pour rien batard... Mais bon avec toi faut s'habituer j'imagine</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Mais calme tes nerfs... Faut bien que j'essaie pour voir si la taille dynamique est ok</p>
+                        </div>
+                        <h1 id="heure-msg">17:16</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>Bah voilà alors pourquoi tu continues ?</p>
+                        </div>
+                        <h1 id="heure-msg">17:17</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Faut que les messages sortent du cadre pour voir si tout est bon sale boloss</p>
+                        </div>
+                        <h1 id="heure-msg">17:17</h1>
+                    </div>
+                </div>
+
+                <div class="interaction-message">
+                    <div class="zone-input-message">
+                        <input type="text" placeholder="Écrivez votre message..." id="message-conv">
+                    </div>
+                    <img src="css/icones/send.png" alt="send">
+                </div>
+            </div>
+            <div class="space-message"></div>
+        </section>
 
         <script src="js/jquery.js"></script>
         <script src="js/angular.js"></script>
