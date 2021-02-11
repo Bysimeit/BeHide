@@ -187,14 +187,28 @@
         <!--Pages qui viennent de la droite-->
         <section id="conv-message" class="fond-message message-hide slidetoleft">
             <div class="header-message">
-                <div class="font-img-message">
+                <div class="font-img-message" onclick="ChangeStateMsg()">
                     <img class="img-message" src="img/example.jpg" alt="PhotoProfil">
                 </div>
-                <div class="position-nom-message">
-                    <p>Julien Sénéchal</p>
+                <div class="block-button">
+                    <div id="button-msg-id" class="button-msg">
+                        <div class="appel-msg">
+                            <img src="css/icones/telephone.png" alt="Telephone">
+                            <p>Appeler</p>
+                        </div>
+                        <div class="bloquer-msg">
+                            <p>Bloquer</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="body-message">
+                <div id="name-msg" class="position-nom-message">
+                    <p>Julien Sénéchal</p>
+                    <div id="statut-msg" class="statut-msg">
+                        <p>Mon petit status de test xD</p>
+                    </div>
+                </div>
+            </div> 
+            <div id="body-message" class="body-message">
 
                 <div class="scroll-message">
                     <div class="message-received">
