@@ -306,7 +306,8 @@
 }
 
 .width-statut{
-    width: 200px;
+    width: 220px;
+    height: 45px;
 }
 
 @media screen and (max-height: 490px){
@@ -318,19 +319,23 @@
 @keyframes animStatut {
     0%{
         width: 0;
+        height: 20px;
     }
 
     100%{
         width: 200px;
+        height: 20px;
     }
 }
 
 @keyframes animStatutv2 {
     0%{
         width: 200px;
+        height: 20px;
     }
 
     100%{
         width: 0px;
+        height: 20px;
     }
 }
