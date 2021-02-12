@@ -2,6 +2,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     navigator.splashscreen.hide();
+    document.addEventListener("backbutton", function(e) {
+        alert("Bouton");
+    }, false);
 }
 
 var app = angular.module('app', []);

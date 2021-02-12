@@ -1,0 +1,208 @@
+.fond-message{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: #E2FDFF;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: scroll;
+    transition-duration: .2s;
+}
+
+.header-message{
+    position: relative;
+    height: 160px;
+}
+
+.font-img-message{
+    background-color: #00ABB6;
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.img-message{
+    border-radius: 50%;
+    height: 102px;
+    width: 102px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.position-nom-message{
+    position: absolute;
+    right: 20px;
+    width: 58%;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.position-nom-message p {
+    position: absolute;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: left;
+    margin: auto;
+    height: 37px;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0; bottom: 0;
+
+}
+
+.body-message{
+    background-color:rgba(255, 255, 255, 0.65);
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 160px;
+    bottom: 100px;
+    width: 95%;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.scroll-message {
+    overflow: scroll;
+    height: 100%;
+}
+
+.space-message{
+    height: 325px;
+}
+
+.interaction-message{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #00ABB6;
+}
+
+.zone-input-message{
+    position: absolute;
+    width: 80%;
+    height: 35px;
+    left: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.65);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.zone-input-message textarea {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    left: 7px;
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 92%;
+    resize: none;
+    cursor: none;
+    outline: none;
+}
+
+.zone-input-message textarea::-webkit-input-placeholder{
+    text-align: left;
+    color: white;
+    position: absolute;
+    padding-top: 6px;
+    padding-left: 10px;
+}
+
+.interaction-message img{
+    height: 35px;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+}
+
+.message-received{
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.message-received p{
+    overflow-wrap: break-word;
+    max-width: 75%;
+    margin-left: 10px;
+    padding: 10px 15px 10px;
+    background : rgba(0, 171, 182, 0.65);
+    border-radius: 20px;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+
+}
+
+.message-received h1{
+    margin-top: 3px;
+    margin-left: 20px;
+    font-size: 11px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.message-send{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.message-send div{
+    margin-right: 0;
+    margin-left: auto;
+    width: fit-content;
+    min-width: 50px;
+    max-width: 75%;
+}
+
+.message-send p{
+    overflow-wrap: break-word;
+    padding: 10px 15px 10px;
+    background : rgba(0, 171, 182, 0.19);
+    border-radius: 20px;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    right: 10px;
+}
+
+.message-send h1{
+    margin-top: 3px;
+    margin-right: 20px;
+    margin-left: auto;
+    font-size: 11px;
+    width: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.last-message h1{
+    padding-bottom: 50px;
+}
+
+.slidetoleft{
+    transform: translate3d(100%, 0, 0)
+}
+
+.message-hide{
+    display: none;
+}
+
+@media screen and (max-height: 490px){
+    .body-message{
+        height: 230px;
+    }
+}
