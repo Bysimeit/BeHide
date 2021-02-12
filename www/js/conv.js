@@ -4,8 +4,14 @@ function DisplayConv(){
     function display(){
         document.getElementById("conv-message").classList.remove("slidetoleft");
     }
-
+    
     document.getElementById("conv-message").classList.remove("message-hide");
+
+    //Mettre le scroll tout en bas
+    element = document.getElementById('scroll-message');
+    element.scrollTop = element.scrollHeight;
+    ////
+
     setTimeout(display,10);
 }
 
