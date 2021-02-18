@@ -1,11 +1,38 @@
 deploymsg = 0;
+isButtonOn = 1
+isDuration = 1;
 
-function DisplayConv(){
-    function display(){
-        document.getElementById("conv-message").classList.remove("slidetoleft");
+function changeStateButton(){
+    if(isButtonOn == 1){
+        document.getElementById("nav").style.display = "none";
+        isButtonOn = 0;
+    } else {
+        document.getElementById("nav").style.removeProperty("display");
+        isButtonOn = 1;
+    }
+}
+
+function duration(){
+    if(isDuration){
+        document.getElementById("conv-message").style.transitionDuration = "0s";
+        isDuration = 0;
+    } else {
+        document.getElementById("conv-message").style.removeProperty("transition-duration");
+        isDuration = 1;
     }
     
+}
+
+function DisplayConv(){
+
+    function display(){
+        document.getElementById("conv-message").classList.remove("slidetoleft");
+        setTimeout(duration,20);
+    }
+
     document.getElementById("conv-message").classList.remove("message-hide");
+    
+    changeStateButton();
 
     //Mettre le scroll tout en bas
     element = document.getElementById('scroll-message');
@@ -16,12 +43,19 @@ function DisplayConv(){
 }
 
 function HideConv(){
+
     function hide(){
         document.getElementById("conv-message").classList.add("message-hide");
     }
 
-    document.getElementById("conv-message").classList.add("slidetoleft");
-    setTimeout(hide,450);
+    function changeClass(){
+        document.getElementById("conv-message").classList.add("slidetoleft");
+        changeStateButton();
+        setTimeout(hide,450);
+    }
+
+    duration();
+    setTimeout(changeClass,20);
 }
 
 function OptOn(){

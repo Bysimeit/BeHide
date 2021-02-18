@@ -61,10 +61,10 @@
 
         <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
-        <nav>
-            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations';deploycontact=1" ng-class="{active: menu=='conversations'}" onclick="HideConv()"></a>
-            <a href="#appels" class="nav-rond-center" ng-click="menu='appels';deploycontact=1" ng-class="{active: menu=='appels'}" onclick="HideConv()"></a>
-            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts';deploycontact=0" ng-class="{active: menu=='contacts'}" onclick="HideConv()"></a>
+        <nav id="nav">
+            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations';deploycontact=1" ng-class="{active: menu=='conversations'}"></a>
+            <a href="#appels" class="nav-rond-center" ng-click="menu='appels';deploycontact=1" ng-class="{active: menu=='appels'}"></a>
+            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts';deploycontact=0" ng-class="{active: menu=='contacts'}"></a>
         </nav>
 
         <footer>
@@ -207,6 +207,9 @@
                         <p>Mon petit status de test xD</p>
                     </div>
                 </div>
+                <div class="exit-message" onclick="HideConv()">
+                    <img src="css/icones/arrow.png" alt="exit">
+                </div>
             </div> 
             <div id="body-message" class="body-message scroll-container">
 
@@ -327,7 +330,7 @@
                     </div>
                     <div class="interaction-message">
                         <div class="zone-input-message">
-                            <textarea type="text" placeholder="Écrivez votre message..." id="message-conv"></textarea></textarea>
+                            <textarea type="text" placeholder="Écrivez votre message..." id="message-conv"></textarea>
                         </div>
                         <img src="css/icones/send.png" alt="send">
                     </div>
@@ -345,5 +348,6 @@
         <script src="js/Welcome.js"></script>
         <script src="js/animationContact.js"></script>
         <script src="js/conv.js"></script>
+        <script src="js/buttonhidden.js"></script>
     </body>
 </html>
