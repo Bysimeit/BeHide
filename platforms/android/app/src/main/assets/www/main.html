@@ -61,10 +61,10 @@
 
         <section class="view" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}" ng-view></section>
 
-        <nav>
-            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations';deploycontact=1" ng-class="{active: menu=='conversations'}" onclick="HideConv()"></a>
-            <a href="#appels" class="nav-rond-center" ng-click="menu='appels';deploycontact=1" ng-class="{active: menu=='appels'}" onclick="HideConv()"></a>
-            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts';deploycontact=0" ng-class="{active: menu=='contacts'}" onclick="HideConv()"></a>
+        <nav id="nav">
+            <a href="#conversations" class="nav-rond-left" ng-click="menu='conversations';deploycontact=1" ng-class="{active: menu=='conversations'}"></a>
+            <a href="#appels" class="nav-rond-center" ng-click="menu='appels';deploycontact=1" ng-class="{active: menu=='appels'}"></a>
+            <a href="#contacts" class="nav-rond-right" ng-click="menu='contacts';deploycontact=0" ng-class="{active: menu=='contacts'}"></a>
         </nav>
 
         <footer>
@@ -187,16 +187,105 @@
         <!--Pages qui viennent de la droite-->
         <section id="conv-message" class="fond-message message-hide slidetoleft">
             <div class="header-message">
-                <div class="font-img-message">
+                <div class="font-img-message" onclick="ChangeStateMsg()">
                     <img class="img-message" src="img/example.jpg" alt="PhotoProfil">
                 </div>
-                <div class="position-nom-message">
-                    <p>Julien Sénéchal</p>
+                <div class="block-button">
+                    <div id="button-msg-id" class="button-msg">
+                        <div class="appel-msg">
+                            <img src="css/icones/telephone.png" alt="Telephone">
+                            <p>Appeler</p>
+                        </div>
+                        <div class="bloquer-msg">
+                            <p>Bloquer</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="body-message">
+                <div id="name-msg" class="position-nom-message">
+                    <p>Julien Sénéchal</p>
+                    <div id="statut-msg" class="statut-msg">
+                        <p>Mon petit status de test xD</p>
+                    </div>
+                </div>
+                <div class="exit-message" onclick="HideConv()">
+                    <img src="css/icones/arrow.png" alt="exit">
+                </div>
+            </div> 
+            <div id="body-message" class="body-message scroll-container">
 
-                <div class="scroll-message">
+                <div id="scroll-message" class="scroll-message">
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
+                    <div class="message-received">
+                        <div>
+                            <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
+                        </div>
+                        <h1 id="heure-msg">17:10</h1>
+                    </div>
+                    <div class="message-send">
+                        <div>
+                            <p>T'es pas drôle</p>
+                        </div>
+                        <h1 id="heure-msg">17:15</h1>
+                    </div>
                     <div class="message-received">
                         <div>
                             <p>Voici un petit message de test assez grand mais pas trop faut pas déconner xD</p>
@@ -233,7 +322,7 @@
                         </div>
                         <h1 id="heure-msg">17:17</h1>
                     </div>
-                    <div class="message-send last-message"> <!--PAS OUBLIER D'AJOUTER LA CLASSE LAST-MESSAGE-->
+                    <div class="message-send last-message" id="lastmessage"> <!--PAS OUBLIER D'AJOUTER LA CLASSE LAST-MESSAGE-->
                         <div>
                             <p>Osef c'est bon là !!!</p>
                         </div>
@@ -241,7 +330,7 @@
                     </div>
                     <div class="interaction-message">
                         <div class="zone-input-message">
-                            <textarea type="text" placeholder="Écrivez votre message..." id="message-conv"></textarea></textarea>
+                            <textarea type="text" placeholder="Écrivez votre message..." id="message-conv"></textarea>
                         </div>
                         <img src="css/icones/send.png" alt="send">
                     </div>
