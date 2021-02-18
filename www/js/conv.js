@@ -2,16 +2,6 @@ deploymsg = 0;
 isButtonOn = 1
 isDuration = 1;
 
-function changeStateButton(){
-    if(isButtonOn == 1){
-        document.getElementById("nav").style.display = "none";
-        isButtonOn = 0;
-    } else {
-        document.getElementById("nav").style.removeProperty("display");
-        isButtonOn = 1;
-    }
-}
-
 function duration(){
     if(isDuration){
         document.getElementById("conv-message").style.transitionDuration = "0s";
@@ -32,7 +22,6 @@ function DisplayConv(){
 
     document.getElementById("conv-message").classList.remove("message-hide");
     
-    changeStateButton();
 
     //Mettre le scroll tout en bas
     element = document.getElementById('scroll-message');
@@ -50,7 +39,6 @@ function HideConv(){
 
     function changeClass(){
         document.getElementById("conv-message").classList.add("slidetoleft");
-        changeStateButton();
         setTimeout(hide,450);
     }
 
