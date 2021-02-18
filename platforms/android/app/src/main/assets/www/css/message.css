@@ -8,6 +8,7 @@
     z-index: 1;
     overflow: scroll;
     transition-duration: .2s;
+    z-index: 15;
 }
 
 .header-message{
@@ -42,6 +43,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
+    transition-duration: 1s;
 }
 
 .position-nom-message p {
@@ -54,7 +56,6 @@
     margin-top: auto;
     margin-bottom: auto;
     top: 0; bottom: 0;
-
 }
 
 .body-message{
@@ -66,10 +67,11 @@
     right: 0;
     left: 0;
     top: 160px;
-    bottom: 100px;
+    bottom: 20px;
     width: 95%;
     border-radius: 30px;
     overflow: hidden;
+    transition: 1s;
 }
 
 .scroll-message {
@@ -111,14 +113,15 @@
     resize: none;
     cursor: none;
     outline: none;
+    padding-top: 9px;
+    padding-right: -18px;
 }
 
 .zone-input-message textarea::-webkit-input-placeholder{
     text-align: left;
     color: white;
     position: absolute;
-    padding-top: 6px;
-    padding-left: 10px;
+    padding-left: 9px;
 }
 
 .interaction-message img{
@@ -201,8 +204,150 @@
     display: none;
 }
 
+.body_change_msg{
+    top:245px;
+}
+
+.nom_change_msg{
+    bottom: 70px;
+}
+
+.button-msg{
+    position: absolute;
+    right: -360px;
+    top: 0px;
+    z-index: 5;
+    transition-duration: 1s;
+}
+
+.appel-msg{
+    background-color: #68D1FE;
+    width: 200px;
+    border-radius: 13px;
+    height: 40px;
+}
+
+.appel-msg p{
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0; right: 0;
+    top: 6px;
+    font-size: 17px;
+}
+
+.appel-msg img{
+    position: absolute;
+    height: 30px;
+    left: 10px;
+    top: 5px;
+}
+
+.bloquer-msg{
+    margin-top: 5px;
+    background-color: #D02B2B;
+    width: 200px;
+    border-radius: 13px;
+    height: 40px;
+}
+
+.bloquer-msg p{
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0; right: 0;
+    top: 52px;
+    font-size: 17px;
+}
+
+.move-button{
+    transform: translate3D(-200%,0,0);
+    display: block;
+}
+
+.block-button{
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    top: 110px;
+    z-index: 5;
+    height: 115px;
+    width: 267px;
+    transition-duration: 1s;
+}
+
+.statut-msg{
+    overflow: hidden;
+    width: 0px;
+    position: absolute;
+    top: 55px;
+    height: 20px;
+}
+
+.statut-msg p{
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    transition-duration: 1s;
+}
+
+.statut-msg-apparition{
+    animation: animStatut 1s;
+}
+.statut-msg-apparitionv2{
+    animation: animStatutv2 1s;
+}
+
+.width-statut{
+    width: 220px;
+    height: 45px;
+}
+
+.exit-message{
+    position: absolute;
+    top: 123px;
+    left: 10px;
+}
+
+.exit-message img{
+    height: 30px;
+}
+
 @media screen and (max-height: 490px){
     .body-message{
         height: 230px;
+    }
+}
+
+@keyframes animStatut {
+    0%{
+        width: 0;
+        height: 20px;
+    }
+
+    100%{
+        width: 200px;
+        height: 20px;
+    }
+}
+
+@keyframes animStatutv2 {
+    0%{
+        width: 200px;
+        height: 20px;
+    }
+
+    100%{
+        width: 0px;
+        height: 20px;
     }
 }
