@@ -112,14 +112,15 @@
     resize: none;
     cursor: none;
     outline: none;
+    padding-top: 9px;
+    padding-right: -18px;
 }
 
 .zone-input-message textarea::-webkit-input-placeholder{
     text-align: left;
     color: white;
     position: absolute;
-    padding-top: 6px;
-    padding-left: 10px;
+    padding-left: 9px;
 }
 
 .interaction-message img{
