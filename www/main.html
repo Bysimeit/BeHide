@@ -55,7 +55,7 @@
             </div>
         </header>
 
-        <div class="Ajouter_contact" ng-hide="deploycontact==1" ng-click="deployajout=0" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}">
+        <div class="Ajouter_contact" onclick="appartitionAjoutContact()" ng-hide="deploycontact==1" ng-click="deployajout=0" ng-class="{scrollingon:panel==0, scrollingoff:panel==1}">
             <p>AJOUTER</p>
         </div>
 
@@ -162,7 +162,7 @@
                 </div>
             </section>
             <!-- Ajouter un contact-->
-            <section id="ajout" class="section-ajout begin" ng-class="{ajout_move:deployajout==0}">
+            <section id="ajout" class="section-ajout begin">
                 <div class="menu-ajout">
                     <p>Votre code contact est</p>
                     <div class="code">
@@ -177,7 +177,7 @@
                     <div class="Valider-button">
                         <p>Valider</p>
                     </div>
-                    <div class="Retour-button" ng-click="deployajout=1">
+                    <div class="Retour-button" onclick="disparitionAjoutContact()" ng-click="deployajout=1">
                         <p>Retour</p>
                     </div>
                 </div>

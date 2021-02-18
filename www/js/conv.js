@@ -1,5 +1,4 @@
 deploymsg = 0;
-isButtonOn = 1
 isDuration = 1;
 
 function duration(){

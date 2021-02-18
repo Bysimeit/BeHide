@@ -326,6 +326,10 @@
     color: white;
 }
 
+.durationzero{
+    transition-duration: 0s;
+}
+
 @keyframes scaling{
     from{
         width: 1%;
