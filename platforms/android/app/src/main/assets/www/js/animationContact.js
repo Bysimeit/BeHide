@@ -1,3 +1,5 @@
+isDurationContact = 1;
+
 function stableContact(){
     console.log("Contact");
     document.getElementById("pageContact").classList.remove("hide-contact");
@@ -25,4 +27,14 @@ function base(){
     document.getElementById("stylephotocontact").classList.add("disparition-contact");
     document.getElementById("nomContact").classList.add("hide-contact");
     setTimeout(hide,100);
+}
+
+function appartitionAjoutContact(){
+    document.getElementById("ajout").style.position = "absolute";
+    document.getElementById("ajout").style.top = "0";
+}
+
+function disparitionAjoutContact(){
+    document.getElementById("ajout").style.removeProperty("position");
+    document.getElementById("ajout").style.top = "0";
 }
