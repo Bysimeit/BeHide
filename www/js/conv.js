@@ -20,6 +20,7 @@ function scrollbottom(){
 }
 
 function scrollbottomdelay(){
+    CloseMsgStatut()
     setTimeout(scrollbottom, 500);
 }
 
@@ -88,3 +89,9 @@ function ChangeStateMsg(){
     }
 }
 
+function CloseMsgStatut(){
+    if(deploymsg == 1){
+        OptOff()
+        deploymsg=0;
+    }
+}
