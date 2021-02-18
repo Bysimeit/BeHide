@@ -19,6 +19,11 @@ function scrollbottom(){
     ////
 }
 
+function scrollbottomdelay(){
+    CloseMsgStatut()
+    setTimeout(scrollbottom, 500);
+}
+
 function DisplayConv(){
 
     function display(){
@@ -84,3 +89,9 @@ function ChangeStateMsg(){
     }
 }
 
+function CloseMsgStatut(){
+    if(deploymsg == 1){
+        OptOff()
+        deploymsg=0;
+    }
+}
