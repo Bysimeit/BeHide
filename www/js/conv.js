@@ -12,6 +12,13 @@ function duration(){
     
 }
 
+function scrollbottom(){
+    //Mettre le scroll tout en bas
+    element = document.getElementById('scroll-message');
+    element.scrollTop = element.scrollHeight;
+    ////
+}
+
 function DisplayConv(){
 
     function display(){
@@ -22,11 +29,7 @@ function DisplayConv(){
     document.getElementById("conv-message").classList.remove("message-hide");
     
 
-    //Mettre le scroll tout en bas
-    element = document.getElementById('scroll-message');
-    element.scrollTop = element.scrollHeight;
-    ////
-
+    scrollbottom()
     setTimeout(display,10);
 }
 
