@@ -19,6 +19,10 @@ function scrollbottom(){
     ////
 }
 
+function scrollbottomdelay(){
+    setTimeout(scrollbottom, 500);
+}
+
 function DisplayConv(){
 
     function display(){
