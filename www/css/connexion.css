@@ -114,6 +114,14 @@ body {
     font-weight: bold;
 }
 
+.btn-inscriptioninside {
+    border: none;
+    text-decoration: none;
+    background: #FF2C2C;
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
 .section-inscription {
     background-color: #E2FDFF;
     z-index: 1;
@@ -166,8 +174,13 @@ body {
     text-align: center;
 }
 
+.email2 {
+    margin-top: 195px;
+    height: 80px;
+}
+
 .password {
-    margin-top: 165px;
+    margin-top: 250px;
     height: 80px;
     top: 100px;
 }
@@ -180,7 +193,7 @@ body {
 }
 
 .password2 {
-    margin-top: 220px;
+    margin-top: 305px;
     height: 80px;
     top: 130px;
 }
@@ -212,8 +225,7 @@ body {
 
 .menubutton-connexion {
     position: absolute;
-    bottom: 15px;
-    height: 132px;
+    bottom: 10px;
     width: 100%;
 }
 
@@ -227,10 +239,4 @@ body {
     position: absolute;
     padding-left: 10px;
     font-size: 20px;
-}
-
-@media screen and (max-height: 673px){
-    .menubutton-connexion{
-        position: relative;
-    }
 }

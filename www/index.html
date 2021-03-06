@@ -10,54 +10,59 @@
         <title>BeHide</title>
     </head>
     <body ng-controller="Menu">
-        <div class="form">
+        <form method="POST" action="" id="formconnexion" class="form">
             <div class="mise-en-page"> 
-            <img src="css/icones/logo.png" class="logo">
-            <div class="case-email">
-                <input type="email" class="input-email" placeholder="Adresse mail">
+                <img src="css/icones/logo.png" class="logo">
+                <div class="case-email">
+                    <input type="email" name="mailconnect" id="mail" class="input-email" placeholder="Adresse mail">
+                </div>
+                <div class="case-password">
+                    <input type="password" name="mdpconnect" id="password" class="input-password" placeholder="Mot de passe">
+                </div>
+                <div class="btn-position-connexion">
+                    <input type="submit" name="formconnexion" class="btn-connexion" value="Connexion">
+                </div>
+                <div class="btn-position-inscription">
+                    <input type="button" class="btn-inscription" value="Inscription" ng-click="deployinscription=0">
+                </div>
+                <div id="result"></div>
             </div>
-            <div class="case-password">
-                <input type="password" class="input-password" placeholder="Mot de passe">
-            </div>
-            <div class="btn-position-connexion">
-                <a href="main.html"><input type="button" class="btn-connexion" value="Connexion"></a>
-            </div>
-            <div class="btn-position-inscription">
-                <input type="button" class="btn-inscription" value="Inscription" ng-click="deployinscription=0">
-            </div>
-            </div>
-        </div>
+        </form>
 
         <section id="inscription" class="section-inscription begin" ng-class="{down:deployinscription==1, base:deployinscription==0}">
             <div class="large-title">
                 <strong>BeHide</strong>
             </div>
-            <div class="formulaire-inscription">
+            <form method="POST" action="" id="forminscription" class="formulaire-inscription">
                 <p class="title-inscription">Inscription :</p>
                 <div class="case-other-input">
                     <p class="nickname">Nom :</p>
-                    <input type="text" class="input-nickname name-input left-input" placeholder="Écrivez ici">
+                    <input type="text" name="nom" id="nom" class="input-nickname name-input left-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-other-input firstname">
                     <p class="nickname">Prénom :</p>
-                    <input type="text" class="input-nickname firstname-input left-input" placeholder="Écrivez ici">
+                    <input type="text" name="prenom" id="prenom" class="input-nickname firstname-input left-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-other-input email">
                     <p class="nickname ajust">Adresse mail :</p>
-                    <input type="email" class="input-nickname email-input" placeholder="Écrivez ici">
+                    <input type="email" name="mail" id="mail1" class="input-nickname email-input" placeholder="Écrivez ici">
+                </div>
+                <div class="case-other-input email2">
+                    <p class="nickname ajust">Confirmer adresse mail :</p>
+                    <input type="email" name="mail2" id="mail2" class="input-nickname email-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-other-input password">
                     <p class="nickname ajust">Mot de passe :</p>
-                    <input type="password" class="input-nickname password-input" placeholder="Écrivez ici">
+                    <input type="password" name="mdp" id="password1" class="input-nickname password-input" placeholder="Écrivez ici">
                 </div>
                 <div class="case-other-input password2">
                     <p class="nickname ajust">Confirmer mot de passe :</p>
-                    <input type="password" class="input-nickname password2-input" placeholder="Écrivez ici">
+                    <input type="password" name="mdp2" id="password2" class="input-nickname password2-input" placeholder="Écrivez ici">
                 </div>
-            </div>
+            </form>
             <div class="menubutton-connexion min-height">
                 <div class="menu-choix confirm-inscription">
-                    <strong>S'inscrire</strong>
+                    <input type="submit" name="forminscription" class="btn-inscriptioninside" value="S'inscrire">
                 </div>
                 <div class="menu-choix retour retour-inscription" ng-click="deployinscription=1">
                     <strong>Annuler</strong>
@@ -69,5 +74,6 @@
         <script src="js/angular.js"></script>
         <script src="js/app.js"></script>
         <script src="js/connexion.js"></script>
+        <script src="formphp.js"></script>
     </body>
 </html>
