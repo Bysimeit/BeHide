@@ -41,9 +41,9 @@ form.addEventListener('submit', function (e) {
             }
         }
     }
+    httpRequest.withCredentials = true;
+    httpRequest.open('POST', 'http://localhost/BeHide/main.php', true);
+
+    var data = new FormData(formconnexion);
+    httpRequest.send(data);
 })
-
-httpRequest.open('POST', 'main.php', true);
-
-var data = new FormData(formconnexion);
-httpRequest.send(data);
