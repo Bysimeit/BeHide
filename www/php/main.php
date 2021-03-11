@@ -6,6 +6,7 @@ header('Access-Control-Allow-Credentials: true');
 session_start();
 
 include_once('connect.php');
+$bdd = new PDO('mysql:host=localhost;dbname=behide', 'serv', 'Warning&85246!');
 
 if(isset($_SESSION['id'])) {
     $requser = $bdd->prepare("SELECT * FROM user WHERE id = ?");

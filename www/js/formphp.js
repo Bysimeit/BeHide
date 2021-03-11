@@ -24,8 +24,8 @@ var getHttpRequest = function () {
     return httpRequest;
 }
 
-var result = document.querySelector('#result')
-var form = document.querySelector('#formconnexion')
+var result = document.querySelector('#result');
+var form = document.querySelector('#formconnexion');
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -41,8 +41,8 @@ form.addEventListener('submit', function (e) {
             }
         }
     }
-    httpRequest.withCredentials = true;
     httpRequest.open('POST', 'http://localhost/BeHide/main.php', true);
+    httpRequest.withCredentials = true;
 
     var data = new FormData(formconnexion);
     httpRequest.send(data);
