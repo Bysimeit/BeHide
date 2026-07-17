@@ -1,0 +1,87 @@
+name: Release APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      prerelease:
+        description: 'Marquer la release comme pré-release'
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: android-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@48b5f213c81028ace310571dc5ec0fbbca0b2947 # v4
+
+      - id: version
+        run: echo "value=$(node -p "require('./app.json').expo.version")" >> "$GITHUB_OUTPUT"
+
+      - run: npm ci
+
+      - env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: printf '%s' "$GOOGLE_SERVICES_JSON" | base64 -d > google-services.json
+
+      - run: npx expo prebuild --platform android --no-install
+
+      - env:
+          ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+        run: |
+          printf '%s' "$ANDROID_KEYSTORE" | base64 -d > "$RUNNER_TEMP/release.jks"
+          chmod 600 "$RUNNER_TEMP/release.jks"
+
+      - env:
+          BEHIDE_KEYSTORE_PATH: ${{ runner.temp }}/release.jks
+          BEHIDE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          BEHIDE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          BEHIDE_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          BEHIDE_VERSION_CODE: ${{ github.run_number }}
+        run: |
+          node scripts/ci-android-release.mjs
+          chmod +x android/gradlew
+          ./android/gradlew -p android assembleRelease --no-daemon
+
+      - run: rm -f "$RUNNER_TEMP/release.jks" google-services.json
+        if: always()
+
+      - env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          mkdir -p dist
+          cp android/app/build/outputs/apk/release/app-release.apk "dist/behide-$VERSION.apk"
+          sha256sum "dist/behide-$VERSION.apk" > "dist/behide-$VERSION.apk.sha256"
+
+      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
+        with:
+          tag_name: v${{ steps.version.outputs.value }}
+          name: BeHide ${{ steps.version.outputs.value }}
+          prerelease: ${{ inputs.prerelease }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            dist/behide-${{ steps.version.outputs.value }}.apk
+            dist/behide-${{ steps.version.outputs.value }}.apk.sha256
