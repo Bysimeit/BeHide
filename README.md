@@ -90,7 +90,7 @@ candidates contain IP addresses.
 | **Messaging** | End-to-end encrypted, offline delivery with at-least-once guarantee |
 | **Calls** | Peer-to-peer audio & video (WebRTC), encrypted signalling |
 | **Contacts** | Added by QR code or token, never by phone number |
-| **Identity** | 12-word BIP-39 recovery phrase, or the raw master key |
+| **Identity** | A single private master key. It alone restores your whole identity, on any phone. |
 | **At rest** | Local database encrypted with a device-specific derived key |
 | **Backups** | Manual, encrypted, identity-bound. Restore on any phone that has your key |
 | **Read receipts** | Reciprocal: turn them off and you neither send nor see them |
