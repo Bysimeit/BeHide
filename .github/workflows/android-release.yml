@@ -1,4 +1,4 @@
-name: Build APK
+name: Build app
 
 on:
   push:
@@ -27,14 +27,16 @@ on:
 permissions: {}
 
 concurrency:
-  group: android-build-${{ github.ref }}
+  group: app-build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  android:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.value }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -83,28 +85,105 @@ jobs:
       - run: rm -f "$RUNNER_TEMP/release.jks" google-services.json
         if: always()
 
+      - run: |
+          cp android/app/build/outputs/apk/release/app-release.apk behide.apk
+          sha256sum behide.apk > behide.apk.sha256
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: android
+          path: |
+            behide.apk
+            behide.apk.sha256
+          if-no-files-found: error
+
+  ios:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx expo prebuild --platform ios --no-install
+
+      - working-directory: ios
+        run: pod install
+
+      - name: Build unsigned archive
+        run: |
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/BeHide.xcarchive" \
+            archive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGN_ENTITLEMENTS="" \
+            EXPANDED_CODE_SIGN_IDENTITY=""
+
+      - name: Package unsigned IPA
+        run: |
+          APP=$(ls -d "$RUNNER_TEMP/BeHide.xcarchive/Products/Applications/"*.app | head -1)
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -R "$APP" "$RUNNER_TEMP/Payload/"
+          (cd "$RUNNER_TEMP" && zip -qry behide.ipa Payload)
+          cp "$RUNNER_TEMP/behide.ipa" behide.ipa
+          shasum -a 256 behide.ipa > behide.ipa.sha256
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ios
+          path: |
+            behide.ipa
+            behide.ipa.sha256
+          if-no-files-found: error
+
+  release:
+    needs: [android, ios]
+    if: ${{ always() && needs.android.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          path: dist
+          merge-multiple: true
+
       - env:
           GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.version.outputs.value }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ needs.android.outputs.version }}
           RUN_NUMBER: ${{ github.run_number }}
-          COMMIT: ${{ github.sha }}
           OFFICIAL: ${{ github.event_name == 'workflow_dispatch' && inputs.official }}
           PRERELEASE: ${{ inputs.prerelease }}
+        working-directory: dist
         run: |
-          APK=android/app/build/outputs/apk/release/app-release.apk
+          files=(behide.apk behide.apk.sha256)
+          [ -f behide.ipa ] && files+=(behide.ipa behide.ipa.sha256)
           if [ "$OFFICIAL" = "true" ]; then
-            cp "$APK" behide.apk
-            sha256sum behide.apk > behide.apk.sha256
             flags=""
             [ "$PRERELEASE" = "true" ] && flags="--prerelease"
-            gh release create "v$VERSION" behide.apk behide.apk.sha256 \
+            gh release create "v$VERSION" "${files[@]}" \
               --title "BeHide $VERSION" --generate-notes $flags
           else
-            cp "$APK" behide.apk
-            sha256sum behide.apk > behide.apk.sha256
             gh release delete latest --yes --cleanup-tag || true
-            gh release create latest behide.apk behide.apk.sha256 \
+            gh release create latest "${files[@]}" \
               --title "Latest build ($VERSION, build $RUN_NUMBER)" \
-              --notes "Signed APK built automatically from commit $COMMIT. Updated on every change to the app." \
-              --prerelease
+              --notes "" --prerelease
           fi
