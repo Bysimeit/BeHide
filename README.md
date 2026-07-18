@@ -6,7 +6,7 @@
 
 *Who has never dreamed of talking with the certainty that nothing will ever be disclosed?*
 
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-lightgrey.svg)]()
 [![Built with](https://img.shields.io/badge/built%20with-React%20Native%20%2F%20Expo-000020.svg)]()
 [![Status](https://img.shields.io/badge/status-experimental-orange.svg)]()
@@ -132,4 +132,4 @@ vulnerability, please report it privately first.
 
 ## License
 
-[Apache-2.0](LICENSE).
+[AGPL-3.0](LICENSE).

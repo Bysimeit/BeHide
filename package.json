@@ -2,7 +2,7 @@
   "name": "behide",
   "version": "1.0.0",
   "description": "An anonymous, end-to-end encrypted messenger.",
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0-only",
   "main": "expo-router/entry",
   "private": true,
   "scripts": {
