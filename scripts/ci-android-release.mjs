@@ -45,16 +45,16 @@ if (signed === gradle) {
 }
 gradle = signed;
 
-const versioned = gradle.replace(
-  /versionCode \d+/,
-  `versionCode ${process.env.BEHIDE_VERSION_CODE}`,
-);
-
-if (versioned === gradle) {
+if (!/versionCode \d+/.test(gradle)) {
   console.error("Could not set versionCode.");
   process.exit(1);
 }
 
-writeFileSync(GRADLE, versioned);
+gradle = gradle.replace(
+  /versionCode \d+/,
+  `versionCode ${process.env.BEHIDE_VERSION_CODE}`,
+);
+
+writeFileSync(GRADLE, gradle);
 
 console.log(`Release signing wired, versionCode=${process.env.BEHIDE_VERSION_CODE}.`);
