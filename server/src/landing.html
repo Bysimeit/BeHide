@@ -5,6 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BeHide, anonymous end-to-end encrypted messenger</title>
 <meta name="description" content="An anonymous, end-to-end encrypted messenger that keeps no account, no server-side history, and no idea who you are." />
+<meta name="author" content="Simon" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#00ABB6" />
+<link rel="canonical" href="https://behide.xeron.be/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BeHide" />
+<meta property="og:title" content="BeHide, anonymous end-to-end encrypted messenger" />
+<meta property="og:description" content="No account, no server-side history, no idea who you are. Your identity is a key that never leaves your phone." />
+<meta property="og:url" content="https://behide.xeron.be/" />
+<meta property="og:image" content="https://raw.githubusercontent.com/Bysimeit/BeHide/main/assets/images/icon.png" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="BeHide, anonymous end-to-end encrypted messenger" />
+<meta name="twitter:description" content="No account, no server-side history, no idea who you are." />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Bysimeit/BeHide/main/assets/images/icon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BeHide",
+  "applicationCategory": "CommunicationApplication",
+  "operatingSystem": "Android, iOS",
+  "description": "An anonymous, end-to-end encrypted messenger that keeps no account, no server-side history, and no idea who you are.",
+  "url": "https://behide.xeron.be/",
+  "downloadUrl": "https://github.com/Bysimeit/BeHide/releases/latest",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "author": { "@type": "Person", "name": "Simon", "url": "https://github.com/Bysimeit" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACr0lEQVR4nOXZy2sTURQH4N+cTJrQ0jY0TbRFKCJUwQe0Iq0WH4mbig9cuhA3Lrt34VLdiGvBv0CQLAWpO2NEnTTSqm01ajf1kaYPmyaVZiaTGZmIQqBEOpmZZHK+TUJuzs09h5l7hxMBsSc6GCMwR2COwByBOQJzBOYIzBGYIzBHYI7AHIE5AnME5kQnfyzsa8O9IwdwqT+MgNdb93yypkH6mcONd+nKqxmCU/2ALq+IqegJDHZ2WD63UYjTzyRTRSA4ZGLfgC3JG3xEuHt4v6lYgkNGerptnX80GGjuAvg9HlvnN64CMwjMEZgjMEdgTqwnOBIKYiTYDT9tv8Fp0HFr/gtargA+IsSOD+FiX7jm98p68xeAzATdPjj43+TdgswEXRvoR6sgM0G7/D60CgJzhBZRLGu8C/DaZD+A0AIUTcPN2TS/AiiahsTqOiLxJF6t5Zq7JTaemNpxTMjXhsmTxzAc6Kr6/NyLFCaXVixZlwib7TZxZBotrnWlhBVZQSQu4fHYUZzq7bFlfSJs5BEEZC5Edxz3NLv674rJl1SMJ1KIjQ7hfF/I8jUSXGCrXMbll2/wcPGHu9vi9VB1HVeTb5ErqWh4AVRdhygIsHN3347Rv5+YnkOnKDb2FvhY2ISdZjcKNccLqtrYAtz5sAC7rCkl3F9YhFPITNCjrxlcT73HqqxYupiZXB5n4xK+bxXhFKGev8aMfWBvR3ulQzTWG8CD4UNV48Y5fkWawXKxdqF06NgoqfjmYOJ/ifUEG5vh581flfd72v1VY8uygmhcwlze3v2iKY/BbFFG9HkS802evC0PQktFGRGXJG/5FZAxko9LSBf+3BasCpAtyjgTl/DJRclbWoDpXB5uRGCOwByBOQJzBOYIzBGYIzBHYI7AHIE5AnME5qjRC2i03w0H11O1CGUHAAAAAElFTkSuQmCC" />
 <style>
   :root {
@@ -101,23 +131,27 @@
     100% { box-shadow: 0 0 0 0 rgba(46, 158, 91, 0); }
   }
 
-  .btn {
+  .dl-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 11px 20px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.92rem;
+    gap: 13px;
+    padding: 13px 26px 13px 22px;
+    border-radius: 18px;
     text-decoration: none;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
     white-space: nowrap;
   }
-  .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 10px 24px -12px rgba(0, 133, 141, 0.9); }
-  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
-  .btn-ghost { background: rgba(255,255,255,0.6); border-color: var(--line); color: var(--text); }
-  .btn-ghost:hover { background: #fff; transform: translateY(-1px); }
+  .dl-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .dl-btn svg { width: 27px; height: 27px; flex: none; }
+  .dl-btn .dl-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+  .dl-btn .dl-sub { font-size: 0.72rem; font-weight: 500; opacity: 0.82; }
+  .dl-btn .dl-main { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; }
+  .dl-android { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 14px 30px -14px rgba(0, 133, 141, 0.95); }
+  .dl-ios { background: linear-gradient(135deg, #22383d, var(--text)); color: #fff; box-shadow: 0 14px 30px -14px rgba(11, 34, 38, 0.7); }
+  .cta-note { margin: 20px auto 0; max-width: 46ch; font-size: 0.82rem; color: var(--muted); }
+  .cta-source { margin: 12px auto 0; }
+  .cta-source a { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+  .cta-source a:hover { text-decoration: underline; }
 
   .hero { padding: 80px 0 56px; text-align: center; }
   h1 {
@@ -246,16 +280,17 @@
       <p class="lede">An anonymous, end-to-end encrypted messenger that keeps no account, no server-side history, and no idea who you are.</p>
       <p class="dream">Who has never dreamed of talking with the certainty that nothing will ever be disclosed?</p>
       <div class="cta">
-        <a class="btn btn-primary" href="https://github.com/Bysimeit/BeHide/releases/latest/download/behide.apk" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3v12" />
-            <path d="m7 12 5 5 5-5" />
-            <path d="M5 21h14" />
-          </svg>
-          Download APK
+        <a class="dl-btn dl-android" href="https://github.com/Bysimeit/BeHide/releases/latest/download/behide.apk" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.0775-9.4396"/></svg>
+          <span class="dl-text"><span class="dl-sub">Download for</span><span class="dl-main">Android</span></span>
         </a>
-        <a class="btn btn-ghost" href="https://github.com/Bysimeit/BeHide" target="_blank" rel="noopener noreferrer">View the source</a>
+        <a class="dl-btn dl-ios" href="https://github.com/Bysimeit/BeHide/releases/latest/download/behide.ipa" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.037 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg>
+          <span class="dl-text"><span class="dl-sub">Download for</span><span class="dl-main">iOS</span></span>
+        </a>
       </div>
+      <p class="cta-note">Android installs directly. iOS is unsigned and installs by sideloading (AltStore, Sideloadly).</p>
+      <p class="cta-source"><a href="https://github.com/Bysimeit/BeHide" target="_blank" rel="noopener noreferrer">or view the source on GitHub</a></p>
     </div>
 
     <section class="wrap">
@@ -301,7 +336,7 @@
         <div class="feature"><h4><span class="ic">◆</span>Messaging</h4><p>End-to-end encrypted, offline delivery with an at-least-once guarantee.</p></div>
         <div class="feature"><h4><span class="ic">◆</span>Calls</h4><p>Peer-to-peer audio &amp; video over WebRTC, with encrypted signalling.</p></div>
         <div class="feature"><h4><span class="ic">◆</span>Contacts</h4><p>Added by QR code or token, never by phone number.</p></div>
-        <div class="feature"><h4><span class="ic">◆</span>Identity</h4><p>A 12-word BIP-39 recovery phrase, or the raw master key.</p></div>
+        <div class="feature"><h4><span class="ic">◆</span>Identity</h4><p>A single private master key. It alone restores your whole identity, on any phone.</p></div>
         <div class="feature"><h4><span class="ic">◆</span>At rest</h4><p>Local database encrypted with a device-specific derived key.</p></div>
         <div class="feature"><h4><span class="ic">◆</span>Backups</h4><p>Manual, encrypted, identity-bound. Restore on any phone that has your key.</p></div>
         <div class="feature"><h4><span class="ic">◆</span>Read receipts</h4><p>Reciprocal: turn them off and you neither send nor see them.</p></div>

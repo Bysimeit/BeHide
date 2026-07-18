@@ -3,7 +3,7 @@
     "name": "BeHide",
     "slug": "behide",
     "owner": "bysimeit",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "scheme": "behide",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

@@ -16,11 +16,11 @@ on:
   workflow_dispatch:
     inputs:
       official:
-        description: 'Publier une release versionnée officielle (sinon build latest)'
+        description: 'Publish an official versioned release (otherwise latest build)'
         type: boolean
         default: false
       prerelease:
-        description: 'Si officielle, marquer comme pré-release'
+        description: 'If official, mark it as a pre-release'
         type: boolean
         default: false
 

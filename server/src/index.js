@@ -104,12 +104,37 @@ const landing = readFileSync(
   join(dirname(fileURLToPath(import.meta.url)), "landing.html"),
 );
 
+const SITE = "https://behide.xeron.be";
+
+const robots = `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`;
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${SITE}/</loc></url>
+</urlset>
+`;
+
 const server = createServer((req, res) => {
+  const path = (req.url ?? "/").split("?")[0];
+
+  if (req.method === "GET" && path === "/robots.txt") {
+    res.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
+    res.end(robots);
+    return;
+  }
+
+  if (req.method === "GET" && path === "/sitemap.xml") {
+    res.writeHead(200, { "content-type": "application/xml; charset=utf-8" });
+    res.end(sitemap);
+    return;
+  }
+
   if (req.method === "GET" && (req.headers.accept ?? "").includes("text/html")) {
     res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     res.end(landing);
     return;
   }
+
   res.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
   res.end("BeHide relay OK\n");
 });
