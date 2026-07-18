@@ -1,5 +1,8 @@
 import { createServer } from "node:http";
 import { randomBytes } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { WebSocketServer, WebSocket } from "ws";
 import { ed25519 } from "@noble/curves/ed25519.js";
 import { hexToBytes, utf8ToBytes } from "@noble/hashes/utils.js";
@@ -97,7 +100,16 @@ const acknowledge = (publicKey, mid) => {
   save();
 };
 
+const landing = readFileSync(
+  join(dirname(fileURLToPath(import.meta.url)), "landing.html"),
+);
+
 const server = createServer((req, res) => {
+  if (req.method === "GET" && (req.headers.accept ?? "").includes("text/html")) {
+    res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+    res.end(landing);
+    return;
+  }
   res.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
   res.end("BeHide relay OK\n");
 });

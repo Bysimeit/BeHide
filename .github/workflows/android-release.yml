@@ -1,23 +1,38 @@
-name: Release APK
+name: Build APK
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'server/**'
+      - 'docs/**'
+      - '.idea/**'
+      - '.vscode/**'
+      - '**/*.md'
+      - '.github/workflows/relay-image.yml'
+      - '.gitignore'
+      - '.dockerignore'
+      - 'LICENSE'
   workflow_dispatch:
     inputs:
+      official:
+        description: 'Publier une release versionnée officielle (sinon build latest)'
+        type: boolean
+        default: false
       prerelease:
-        description: 'Marquer la release comme pré-release'
+        description: 'Si officielle, marquer comme pré-release'
         type: boolean
         default: false
 
 permissions: {}
 
 concurrency:
-  group: android-release
-  cancel-in-progress: false
+  group: android-build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: release
     permissions:
       contents: write
     steps:
@@ -69,19 +84,27 @@ jobs:
         if: always()
 
       - env:
+          GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.version.outputs.value }}
+          RUN_NUMBER: ${{ github.run_number }}
+          COMMIT: ${{ github.sha }}
+          OFFICIAL: ${{ github.event_name == 'workflow_dispatch' && inputs.official }}
+          PRERELEASE: ${{ inputs.prerelease }}
         run: |
-          mkdir -p dist
-          cp android/app/build/outputs/apk/release/app-release.apk "dist/behide-$VERSION.apk"
-          sha256sum "dist/behide-$VERSION.apk" > "dist/behide-$VERSION.apk.sha256"
-
-      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
-        with:
-          tag_name: v${{ steps.version.outputs.value }}
-          name: BeHide ${{ steps.version.outputs.value }}
-          prerelease: ${{ inputs.prerelease }}
-          generate_release_notes: true
-          fail_on_unmatched_files: true
-          files: |
-            dist/behide-${{ steps.version.outputs.value }}.apk
-            dist/behide-${{ steps.version.outputs.value }}.apk.sha256
+          APK=android/app/build/outputs/apk/release/app-release.apk
+          if [ "$OFFICIAL" = "true" ]; then
+            cp "$APK" behide.apk
+            sha256sum behide.apk > behide.apk.sha256
+            flags=""
+            [ "$PRERELEASE" = "true" ] && flags="--prerelease"
+            gh release create "v$VERSION" behide.apk behide.apk.sha256 \
+              --title "BeHide $VERSION" --generate-notes $flags
+          else
+            cp "$APK" behide.apk
+            sha256sum behide.apk > behide.apk.sha256
+            gh release delete latest --yes --cleanup-tag || true
+            gh release create latest behide.apk behide.apk.sha256 \
+              --title "Latest build ($VERSION, build $RUN_NUMBER)" \
+              --notes "Signed APK built automatically from commit $COMMIT. Updated on every change to the app." \
+              --prerelease
+          fi
