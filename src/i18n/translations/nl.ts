@@ -208,6 +208,33 @@ export const nl: Catalog = {
     composerPlaceholder: "Schrijf uw bericht...",
     composerLabel: "Berichtveld",
     send: "Het bericht verzenden",
+    openLink: "De link {url} openen",
+    attach: "Een foto of video bijvoegen",
+    attachTitle: "Media versturen",
+    attachLibrary: "Kiezen uit de galerij",
+    attachCamera: "Een foto of video maken",
+    mediaImage: "Foto",
+    mediaVideo: "Video",
+    mediaOpen: "Openen: {kind}",
+    mediaSending: "Verzenden… {percent} %",
+    mediaReceiving: "Ontvangen… {percent} %",
+    mediaFailed: "Overdracht onderbroken",
+    mediaRetry: "Opnieuw proberen",
+    mediaUnavailable: "Media niet beschikbaar op dit toestel.",
+    mediaPlayerUnavailable:
+      "De videospeler steunt op een native module die in deze versie van de app ontbreekt: bouw de app opnieuw om hem in te schakelen.",
+    mediaTooLargeTitle: "Bestand te zwaar",
+    mediaTooLargeMessage:
+      "Dit bestand weegt {size} MB. De limiet is {limit} MB: elk bestand gaat volledig en versleuteld via de relay.",
+    mediaDeniedTitle: "Camera geweigerd",
+    mediaDeniedMessage:
+      "BeHide heeft de camera nodig om een foto of video te maken. Sta dit toe in de instellingen van het toestel.",
+    mediaUnreadableTitle: "Onleesbaar bestand",
+    mediaUnreadableMessage:
+      "Dit bestand kon niet op dit toestel worden gelezen. Probeer het met een ander bestand.",
+    mediaUnsupportedTitle: "Media versturen niet beschikbaar",
+    mediaUnsupportedMessage:
+      "De mediakiezer steunt op native modules die in deze versie van de app ontbreken: bouw de app opnieuw om ze in te schakelen (het werkt niet in Expo Go).",
   },
   call: {
     ended: "Oproep beëindigd",
@@ -328,6 +355,8 @@ export const nl: Catalog = {
   },
   notifications: {
     newMessage: "heeft u een bericht gestuurd",
+    newPhoto: "heeft u een foto gestuurd",
+    newVideo: "heeft u een video gestuurd",
     incomingCall: "belt u",
     incomingVideoCall: "Inkomend videogesprek",
   },

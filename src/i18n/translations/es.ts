@@ -208,6 +208,33 @@ export const es: Catalog = {
     composerPlaceholder: "Escriba su mensaje...",
     composerLabel: "Campo de mensaje",
     send: "Enviar el mensaje",
+    openLink: "Abrir el enlace {url}",
+    attach: "Adjuntar una foto o un vídeo",
+    attachTitle: "Enviar un archivo multimedia",
+    attachLibrary: "Elegir de la galería",
+    attachCamera: "Hacer una foto o un vídeo",
+    mediaImage: "Foto",
+    mediaVideo: "Vídeo",
+    mediaOpen: "Abrir: {kind}",
+    mediaSending: "Enviando… {percent} %",
+    mediaReceiving: "Recibiendo… {percent} %",
+    mediaFailed: "Transferencia interrumpida",
+    mediaRetry: "Reintentar",
+    mediaUnavailable: "Archivo no disponible en este dispositivo.",
+    mediaPlayerUnavailable:
+      "El reproductor de vídeo depende de un módulo nativo ausente de esta versión de la aplicación: reconstrúyela para activarlo.",
+    mediaTooLargeTitle: "Archivo demasiado grande",
+    mediaTooLargeMessage:
+      "Este archivo pesa {size} MB. El límite es de {limit} MB: cada archivo pasa entero por el relé, cifrado.",
+    mediaDeniedTitle: "Cámara denegada",
+    mediaDeniedMessage:
+      "BeHide necesita la cámara para hacer una foto o un vídeo. Autorízala en los ajustes del dispositivo.",
+    mediaUnreadableTitle: "Archivo ilegible",
+    mediaUnreadableMessage:
+      "No se ha podido leer este archivo en este dispositivo. Inténtelo con otro.",
+    mediaUnsupportedTitle: "Envío de archivos no disponible",
+    mediaUnsupportedMessage:
+      "El selector de archivos depende de módulos nativos ausentes de esta versión de la aplicación: reconstrúyela para activarlos (no funciona en Expo Go).",
   },
   call: {
     ended: "Llamada finalizada",
@@ -329,6 +356,8 @@ export const es: Catalog = {
   },
   notifications: {
     newMessage: "le ha enviado un mensaje",
+    newPhoto: "le ha enviado una foto",
+    newVideo: "le ha enviado un vídeo",
     incomingCall: "le está llamando",
     incomingVideoCall: "Videollamada entrante",
   },

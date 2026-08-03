@@ -1,5 +1,16 @@
-import { useState } from "react";
-import { Modal, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Animated,
+  Dimensions,
+  Easing,
+  Modal,
+  PanResponder,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+  type LayoutChangeEvent,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { colors, radius, spacing } from "../../constants/theme";
@@ -11,6 +22,11 @@ import {
   type LanguagePreference,
 } from "../../i18n";
 import { AppText } from "./AppText";
+
+const ENTER_DURATION = 280;
+const EXIT_DURATION = 200;
+const DISMISS_DISTANCE_RATIO = 0.28;
+const DISMISS_VELOCITY = 0.75;
 
 type OptionProps = {
   flag?: string;
@@ -68,39 +84,172 @@ const LanguageSheet = ({
   const insets = useSafeAreaInsets();
   const { t, preference, setPreference } = useI18n();
 
+  const entered = useRef(false);
+  const [sheetHeight, setSheetHeight] = useState(
+    () => Dimensions.get("window").height,
+  );
+  const [translateY] = useState(
+    () => new Animated.Value(Dimensions.get("window").height),
+  );
+  const [backdropOpacity] = useState(() => new Animated.Value(0));
+
+  const requestClose = useCallback(() => {
+    Animated.parallel([
+      Animated.timing(translateY, {
+        toValue: sheetHeight,
+        duration: EXIT_DURATION,
+        easing: Easing.in(Easing.cubic),
+        useNativeDriver: true,
+      }),
+      Animated.timing(backdropOpacity, {
+        toValue: 0,
+        duration: EXIT_DURATION,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    ]).start(({ finished }) => {
+      if (finished) {
+        onClose();
+      }
+    });
+  }, [backdropOpacity, onClose, sheetHeight, translateY]);
+
+  useEffect(() => {
+    if (!visible) {
+      entered.current = false;
+    }
+  }, [visible]);
+
+  const settle = useCallback(() => {
+    Animated.parallel([
+      Animated.spring(translateY, {
+        toValue: 0,
+        damping: 22,
+        stiffness: 260,
+        mass: 0.9,
+        useNativeDriver: true,
+      }),
+      Animated.timing(backdropOpacity, {
+        toValue: 1,
+        duration: 160,
+        easing: Easing.out(Easing.quad),
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [backdropOpacity, translateY]);
+
+  const pan = useMemo(
+    () =>
+      PanResponder.create({
+        onMoveShouldSetPanResponder: (_event, gesture) =>
+          gesture.dy > 3 && Math.abs(gesture.dy) > Math.abs(gesture.dx),
+        onPanResponderGrant: () => {
+          translateY.stopAnimation();
+          backdropOpacity.stopAnimation();
+        },
+        onPanResponderMove: (_event, gesture) => {
+          const offset = Math.max(0, gesture.dy);
+          translateY.setValue(offset);
+          backdropOpacity.setValue(Math.max(0, 1 - offset / sheetHeight));
+        },
+        onPanResponderRelease: (_event, gesture) => {
+          const passedDistance =
+            gesture.dy > sheetHeight * DISMISS_DISTANCE_RATIO;
+
+          if (passedDistance || gesture.vy > DISMISS_VELOCITY) {
+            requestClose();
+            return;
+          }
+
+          settle();
+        },
+        onPanResponderTerminate: () => {
+          settle();
+        },
+      }),
+    [backdropOpacity, requestClose, settle, sheetHeight, translateY],
+  );
+
+  const onSheetLayout = (event: LayoutChangeEvent) => {
+    const { height } = event.nativeEvent.layout;
+
+    if (height <= 0) {
+      return;
+    }
+
+    setSheetHeight(height);
+
+    if (entered.current) {
+      return;
+    }
+
+    entered.current = true;
+    translateY.setValue(height);
+    backdropOpacity.setValue(0);
+
+    Animated.parallel([
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: ENTER_DURATION,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }),
+      Animated.timing(backdropOpacity, {
+        toValue: 1,
+        duration: ENTER_DURATION,
+        easing: Easing.out(Easing.quad),
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
   const choose = (next: LanguagePreference) => {
     setPreference(next);
-    onClose();
+    requestClose();
   };
 
   return (
     <Modal
       visible={visible}
       transparent
-      animationType="slide"
+      animationType="none"
       statusBarTranslucent
       navigationBarTranslucent
-      onRequestClose={onClose}
+      onRequestClose={requestClose}
     >
       <View style={styles.sheetRoot}>
-        <Pressable
-          style={styles.backdrop}
-          accessibilityRole="button"
-          accessibilityLabel={t("common.close")}
-          onPress={onClose}
+        <Animated.View
+          style={[styles.backdrop, { opacity: backdropOpacity }]}
+          pointerEvents="none"
         />
 
-        <View
-          style={[styles.sheet, { paddingBottom: insets.bottom + spacing(4) }]}
-        >
-          <View style={styles.handle} />
+        <Pressable
+          style={styles.backdropTouchable}
+          accessibilityRole="button"
+          accessibilityLabel={t("common.close")}
+          onPress={requestClose}
+        />
 
-          <AppText weight="bold" style={styles.title}>
-            {t("language.title")}
-          </AppText>
-          <AppText muted style={styles.subtitle}>
-            {t("language.subtitle")}
-          </AppText>
+        <Animated.View
+          onLayout={onSheetLayout}
+          style={[
+            styles.sheet,
+            {
+              paddingBottom: insets.bottom + spacing(4),
+              transform: [{ translateY }],
+            },
+          ]}
+        >
+          <View style={styles.header} {...pan.panHandlers}>
+            <View style={styles.handle} />
+
+            <AppText weight="bold" style={styles.title}>
+              {t("language.title")}
+            </AppText>
+            <AppText muted style={styles.subtitle}>
+              {t("language.subtitle")}
+            </AppText>
+          </View>
 
           <ScrollView
             style={styles.list}
@@ -127,7 +276,7 @@ const LanguageSheet = ({
               />
             ))}
           </ScrollView>
-        </View>
+        </Animated.View>
       </View>
     </Modal>
   );
@@ -136,6 +285,8 @@ const LanguageSheet = ({
 export const LanguagePill = () => {
   const [open, setOpen] = useState(false);
   const { t, language } = useI18n();
+
+  const close = useCallback(() => setOpen(false), []);
 
   return (
     <>
@@ -152,7 +303,7 @@ export const LanguagePill = () => {
         <Feather name="chevron-down" size={14} color={colors.textMuted} />
       </Pressable>
 
-      <LanguageSheet visible={open} onClose={() => setOpen(false)} />
+      <LanguageSheet visible={open} onClose={close} />
     </>
   );
 };
@@ -160,6 +311,8 @@ export const LanguagePill = () => {
 export const LanguageButton = () => {
   const [open, setOpen] = useState(false);
   const { t, language } = useI18n();
+
+  const close = useCallback(() => setOpen(false), []);
 
   return (
     <>
@@ -175,7 +328,7 @@ export const LanguageButton = () => {
         <Feather name="chevron-down" size={13} color={colors.textMuted} />
       </Pressable>
 
-      <LanguageSheet visible={open} onClose={() => setOpen(false)} />
+      <LanguageSheet visible={open} onClose={close} />
     </>
   );
 };
@@ -228,12 +381,22 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.45)",
   },
+  backdropTouchable: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
   sheet: {
-    paddingTop: spacing(2),
     paddingHorizontal: spacing(5),
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
     backgroundColor: colors.surface,
+  },
+  header: {
+    paddingTop: spacing(2),
+    paddingBottom: spacing(1),
   },
   handle: {
     alignSelf: "center",

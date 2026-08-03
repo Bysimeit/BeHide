@@ -61,6 +61,10 @@ const RootNavigator = ({ fontsReady }: { fontsReady: boolean }) => {
       <Stack.Screen name="(auth)" />
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="chat/[id]" />
+      <Stack.Screen
+        name="media/[id]"
+        options={{ animation: "fade", contentStyle: { backgroundColor: colors.text } }}
+      />
       <Stack.Screen name="contact/new" />
       <Stack.Screen name="contact/[id]" />
       <Stack.Screen name="call/new" />

@@ -209,6 +209,33 @@ export const de: Catalog = {
     composerPlaceholder: "Schreiben Sie Ihre Nachricht...",
     composerLabel: "Nachrichtenfeld",
     send: "Nachricht senden",
+    openLink: "Link {url} öffnen",
+    attach: "Foto oder Video anhängen",
+    attachTitle: "Medien senden",
+    attachLibrary: "Aus der Galerie wählen",
+    attachCamera: "Foto oder Video aufnehmen",
+    mediaImage: "Foto",
+    mediaVideo: "Video",
+    mediaOpen: "Öffnen: {kind}",
+    mediaSending: "Senden… {percent} %",
+    mediaReceiving: "Empfangen… {percent} %",
+    mediaFailed: "Übertragung unterbrochen",
+    mediaRetry: "Erneut versuchen",
+    mediaUnavailable: "Medien auf diesem Gerät nicht verfügbar.",
+    mediaPlayerUnavailable:
+      "Der Videoplayer benötigt ein natives Modul, das in dieser App-Version fehlt: Bauen Sie die App neu, um ihn zu aktivieren.",
+    mediaTooLargeTitle: "Datei zu groß",
+    mediaTooLargeMessage:
+      "Diese Datei wiegt {size} MB. Das Limit liegt bei {limit} MB: Jede Datei läuft vollständig und verschlüsselt über das Relais.",
+    mediaDeniedTitle: "Kamera abgelehnt",
+    mediaDeniedMessage:
+      "BeHide benötigt die Kamera, um ein Foto oder Video aufzunehmen. Erlauben Sie den Zugriff in den Geräteeinstellungen.",
+    mediaUnreadableTitle: "Datei nicht lesbar",
+    mediaUnreadableMessage:
+      "Diese Datei konnte auf diesem Gerät nicht gelesen werden. Versuchen Sie es mit einer anderen.",
+    mediaUnsupportedTitle: "Medienversand nicht verfügbar",
+    mediaUnsupportedMessage:
+      "Die Medienauswahl benötigt native Module, die in dieser App-Version fehlen: Bauen Sie die App neu, um sie zu aktivieren (in Expo Go funktioniert sie nicht).",
   },
   call: {
     ended: "Anruf beendet",
@@ -333,6 +360,8 @@ export const de: Catalog = {
   },
   notifications: {
     newMessage: "hat Ihnen eine Nachricht gesendet",
+    newPhoto: "hat Ihnen ein Foto gesendet",
+    newVideo: "hat Ihnen ein Video gesendet",
     incomingCall: "ruft Sie an",
     incomingVideoCall: "Eingehender Videoanruf",
   },

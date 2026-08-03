@@ -206,6 +206,33 @@ export const en: Catalog = {
     composerPlaceholder: "Write your message...",
     composerLabel: "Message field",
     send: "Send the message",
+    openLink: "Open the link {url}",
+    attach: "Attach a photo or a video",
+    attachTitle: "Send a media file",
+    attachLibrary: "Pick from the gallery",
+    attachCamera: "Take a photo or a video",
+    mediaImage: "Photo",
+    mediaVideo: "Video",
+    mediaOpen: "Open: {kind}",
+    mediaSending: "Sending… {percent}%",
+    mediaReceiving: "Receiving… {percent}%",
+    mediaFailed: "Transfer interrupted",
+    mediaRetry: "Try again",
+    mediaUnavailable: "Media unavailable on this device.",
+    mediaPlayerUnavailable:
+      "The video player relies on a native module missing from this build of the app: rebuild it to enable playback.",
+    mediaTooLargeTitle: "File too large",
+    mediaTooLargeMessage:
+      "This media file weighs {size} MB. The limit is {limit} MB: every media file travels whole through the relay, encrypted.",
+    mediaDeniedTitle: "Camera denied",
+    mediaDeniedMessage:
+      "BeHide needs the camera to take a photo or a video. Allow it in the device settings.",
+    mediaUnreadableTitle: "Unreadable media",
+    mediaUnreadableMessage:
+      "This file could not be read on this device. Try again with another media file.",
+    mediaUnsupportedTitle: "Media sending unavailable",
+    mediaUnsupportedMessage:
+      "The media picker relies on native modules missing from this build of the app: rebuild it to enable them (it does not work in Expo Go).",
   },
   call: {
     ended: "Call ended",
@@ -325,6 +352,8 @@ export const en: Catalog = {
   },
   notifications: {
     newMessage: "sent you a message",
+    newPhoto: "sent you a photo",
+    newVideo: "sent you a video",
     incomingCall: "is calling you",
     incomingVideoCall: "Incoming video call",
   },

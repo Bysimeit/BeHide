@@ -21,7 +21,7 @@ export const notify = async (publicKey, token) => {
       body: JSON.stringify([
         {
           to: token,
-          body: "New message. Unlock to open it.",
+          body: "New message. Open BeHide to read it.",
           sound: "default",
           priority: "high",
           data: { from: publicKey },

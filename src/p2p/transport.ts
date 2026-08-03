@@ -1,3 +1,4 @@
+import { AppState } from "react-native";
 import type { Envelope } from "./envelope";
 
 export type IncomingMessage = {
@@ -25,6 +26,8 @@ export type RelayConfig = {
 };
 
 const RECONNECT_STEPS = [1000, 2000, 5000, 10000, 30000];
+const PING_INTERVAL = 25000;
+const SILENCE_LIMIT = 70000;
 
 export const createRelayTransport = (config: RelayConfig): Transport => {
   let ws: WebSocket | null = null;
@@ -33,6 +36,8 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
   let wantConnection = false;
   let reconnectAttempt = 0;
   let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  let pingTimer: ReturnType<typeof setInterval> | null = null;
+  let lastFrameAt = 0;
 
   const outbox: { to: string; envelope: Envelope }[] = [];
 
@@ -75,6 +80,42 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
     }, delay);
   };
 
+  const stopPinging = () => {
+    if (!pingTimer) return;
+    clearInterval(pingTimer);
+    pingTimer = null;
+  };
+
+  const dropSocket = () => {
+    stopPinging();
+    ready = false;
+    if (ws) {
+      ws.onclose = null;
+      ws.onmessage = null;
+      ws.onerror = null;
+      ws.close();
+      ws = null;
+    }
+    setState("disconnected");
+  };
+
+  const checkLiveness = () => {
+    if (!ready) return;
+    if (Date.now() - lastFrameAt > SILENCE_LIMIT) {
+      dropSocket();
+      reconnectAttempt = 0;
+      openSocket();
+      return;
+    }
+    rawSend({ type: "ping" });
+  };
+
+  const startPinging = () => {
+    stopPinging();
+    lastFrameAt = Date.now();
+    pingTimer = setInterval(checkLiveness, PING_INTERVAL);
+  };
+
   const handleServerFrame = (raw: string) => {
     let frame: {
       type?: string;
@@ -83,6 +124,8 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
       env?: Envelope;
       mid?: string;
     };
+    lastFrameAt = Date.now();
+
     try {
       frame = JSON.parse(raw);
     } catch {
@@ -110,6 +153,7 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
         setState("connected");
         flushOutbox();
         sendPushToken();
+        startPinging();
         return;
       }
       case "message": {
@@ -140,6 +184,7 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
 
     socket.onclose = () => {
       if (ws === socket) ws = null;
+      stopPinging();
       ready = false;
       setState("disconnected");
       scheduleReconnect();
@@ -148,27 +193,53 @@ export const createRelayTransport = (config: RelayConfig): Transport => {
     socket.onerror = () => {};
   };
 
+  const resume = () => {
+    if (!wantConnection) return;
+
+    if (reconnectTimer) {
+      clearTimeout(reconnectTimer);
+      reconnectTimer = null;
+    }
+    reconnectAttempt = 0;
+
+    if (!ready || !ws || ws.readyState !== WebSocket.OPEN) {
+      dropSocket();
+      openSocket();
+      return;
+    }
+
+    const sentAt = Date.now();
+    lastFrameAt = sentAt;
+    rawSend({ type: "ping" });
+
+    setTimeout(() => {
+      if (ready && lastFrameAt <= sentAt) {
+        dropSocket();
+        openSocket();
+      }
+    }, PING_INTERVAL);
+  };
+
+  let appStateSubscription: { remove: () => void } | null = null;
+
   const connect = () => {
     wantConnection = true;
     reconnectAttempt = 0;
+    appStateSubscription ??= AppState.addEventListener("change", (next) => {
+      if (next === "active") resume();
+    });
     openSocket();
   };
 
   const disconnect = () => {
     wantConnection = false;
-    ready = false;
+    appStateSubscription?.remove();
+    appStateSubscription = null;
     if (reconnectTimer) {
       clearTimeout(reconnectTimer);
       reconnectTimer = null;
     }
-    if (ws) {
-      ws.onclose = null;
-      ws.onmessage = null;
-      ws.onerror = null;
-      ws.close();
-      ws = null;
-    }
-    setState("disconnected");
+    dropSocket();
   };
 
   const send = (to: string, envelope: Envelope) => {

@@ -1,6 +1,7 @@
 import * as SQLite from "expo-sqlite";
 import type { Call, Contact, Message } from "../types";
 import { open, seal, type Envelope } from "../p2p/envelope";
+import { clearMediaVault } from "../media/files";
 
 type Table = "contacts" | "messages" | "calls";
 
@@ -93,4 +94,5 @@ export const clearDatabase = async (): Promise<void> => {
   await db.execAsync(
     "DELETE FROM contacts; DELETE FROM messages; DELETE FROM calls;",
   );
+  await clearMediaVault();
 };

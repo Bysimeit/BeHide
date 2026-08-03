@@ -6,11 +6,13 @@ import { useTranslate } from "../../i18n";
 
 type MessageComposerProps = {
   onSend: (body: string) => void;
+  onAttach: (body: string) => Promise<boolean>;
 };
 
-export const MessageComposer = ({ onSend }: MessageComposerProps) => {
+export const MessageComposer = ({ onSend, onAttach }: MessageComposerProps) => {
   const t = useTranslate();
   const [draft, setDraft] = useState("");
+  const [attaching, setAttaching] = useState(false);
   const canSend = draft.trim().length > 0;
 
   const send = () => {
@@ -19,8 +21,32 @@ export const MessageComposer = ({ onSend }: MessageComposerProps) => {
     setDraft("");
   };
 
+  const attach = async () => {
+    if (attaching) return;
+    setAttaching(true);
+    try {
+      if (await onAttach(draft.trim())) setDraft("");
+    } finally {
+      setAttaching(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
+      <Pressable
+        onPress={() => void attach()}
+        disabled={attaching}
+        accessibilityRole="button"
+        accessibilityLabel={t("chat.attach")}
+        style={({ pressed }) => [
+          styles.attachButton,
+          attaching && styles.disabled,
+          pressed && styles.pressed,
+        ]}
+      >
+        <Ionicons name="image-outline" size={22} color={colors.primary} />
+      </Pressable>
+
       <TextInput
         style={styles.input}
         value={draft}
@@ -31,6 +57,7 @@ export const MessageComposer = ({ onSend }: MessageComposerProps) => {
         placeholderTextColor={colors.textMuted}
         accessibilityLabel={t("chat.composerLabel")}
       />
+
       <Pressable
         onPress={send}
         disabled={!canSend}
@@ -38,8 +65,8 @@ export const MessageComposer = ({ onSend }: MessageComposerProps) => {
         accessibilityLabel={t("chat.send")}
         style={({ pressed }) => [
           styles.sendButton,
-          !canSend && styles.sendButtonDisabled,
-          pressed && styles.sendButtonPressed,
+          !canSend && styles.disabled,
+          pressed && styles.pressed,
         ]}
       >
         <Ionicons
@@ -75,6 +102,15 @@ const styles = StyleSheet.create({
     fontFamily: fonts.regular,
     fontSize: 15,
   },
+  attachButton: {
+    width: 42,
+    height: 42,
+    marginRight: spacing(2),
+    borderRadius: 21,
+    backgroundColor: colors.composerField,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   sendButton: {
     width: 42,
     height: 42,
@@ -84,10 +120,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  sendButtonDisabled: {
+  disabled: {
     opacity: 0.4,
   },
-  sendButtonPressed: {
+  pressed: {
     opacity: 0.75,
   },
 });

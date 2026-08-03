@@ -9,6 +9,19 @@ export type Contact = {
   blockedByMeAt: string | null;
 };
 
+export type MediaKind = "image" | "video";
+
+export type MessageMedia = {
+  kind: MediaKind;
+  mime: string;
+  bytes: number;
+  width: number;
+  height: number;
+  durationMs?: number;
+};
+
+export type MediaStatus = "transferring" | "ready" | "failed";
+
 export type Message = {
   id: string;
   conversationId: string;
@@ -16,6 +29,8 @@ export type Message = {
   body: string;
   sentAt: string;
   readAt?: string;
+  media?: MessageMedia;
+  mediaStatus?: MediaStatus;
 };
 
 export type Conversation = {

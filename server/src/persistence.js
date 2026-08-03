@@ -11,6 +11,8 @@ const DATA_DIR = resolve(process.env.DATA_DIR ?? "data");
 const FILE = resolve(DATA_DIR, "state.json");
 const TMP = FILE + ".tmp";
 const SAVE_DELAY = 200;
+const SAVE_DELAY_MAX = 10000;
+const SAVE_COST_FACTOR = 10;
 
 export const createPersistence = () => {
   const queues = new Map();
@@ -34,8 +36,10 @@ export const createPersistence = () => {
   }
 
   let timer = null;
+  let lastCost = 0;
 
   const writeNow = () => {
+    const startedAt = Date.now();
     mkdirSync(DATA_DIR, { recursive: true });
     const data = {
       queues: Object.fromEntries(queues),
@@ -43,10 +47,15 @@ export const createPersistence = () => {
     };
     writeFileSync(TMP, JSON.stringify(data));
     renameSync(TMP, FILE);
+    lastCost = Date.now() - startedAt;
   };
 
   const save = () => {
     if (timer) return;
+    const delay = Math.min(
+      Math.max(SAVE_DELAY, lastCost * SAVE_COST_FACTOR),
+      SAVE_DELAY_MAX,
+    );
     timer = setTimeout(() => {
       timer = null;
       try {
@@ -54,7 +63,7 @@ export const createPersistence = () => {
       } catch (error) {
         console.error("Persistence failed:", error.message);
       }
-    }, SAVE_DELAY);
+    }, delay);
   };
 
   const flush = () => {
