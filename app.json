@@ -3,7 +3,7 @@
     "name": "BeHide",
     "slug": "behide",
     "owner": "bysimeit",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "scheme": "behide",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -50,7 +50,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "BeHide utilise la caméra pour les appels vidéo."
+          "cameraPermission": "BeHide utilise la caméra pour les appels vidéo, pour scanner le QR code d'un contact et pour prendre les photos et vidéos que vous envoyez."
         }
       ],
       "expo-image",
@@ -60,12 +60,19 @@
       [
         "@config-plugins/react-native-webrtc",
         {
-          "cameraPermission": "BeHide utilise la caméra pour les appels vidéo.",
-          "microphonePermission": "BeHide utilise le micro pour les appels audio et vidéo."
+          "cameraPermission": "BeHide utilise la caméra pour les appels vidéo, pour scanner le QR code d'un contact et pour prendre les photos et vidéos que vous envoyez.",
+          "microphonePermission": "BeHide utilise le micro pour les appels audio et vidéo, et pour le son des vidéos que vous enregistrez."
         }
       ],
       "expo-sharing",
-      "expo-localization"
+      "expo-localization",
+      "expo-video",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "BeHide accède à vos photos pour les joindre à un message, chiffrées de bout en bout."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

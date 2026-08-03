@@ -10,6 +10,7 @@ import { MessageThread } from "../../components/chat/MessageThread";
 import { MessageComposer } from "../../components/chat/MessageComposer";
 import { colors, radius, spacing } from "../../constants/theme";
 import { useTranslate } from "../../i18n";
+import { attachMedia } from "../../media/attach";
 import { displayName, useAppData } from "../../data/store";
 
 const ChatScreen = () => {
@@ -21,6 +22,7 @@ const ChatScreen = () => {
     contactById,
     messagesOf,
     sendMessage,
+    sendMedia,
     markConversationRead,
     settings,
     connection,
@@ -57,13 +59,17 @@ const ChatScreen = () => {
 
   const send = (body: string) => sendMessage(id, body);
 
+  const attach = async (body: string) => {
+    const picked = await attachMedia(t);
+    if (!picked) return false;
+    void sendMedia(id, picked, body);
+    return true;
+  };
+
   return (
     <Screen
       style={[styles.screen, { paddingBottom: insets.bottom + spacing(2) }]}
     >
-      {
-
-      }
       <KeyboardAvoidingView
         style={styles.flex}
         behavior="padding"
@@ -128,7 +134,7 @@ const ChatScreen = () => {
               </AppText>
             </View>
           ) : (
-            <MessageComposer onSend={send} />
+            <MessageComposer onSend={send} onAttach={attach} />
           )}
         </View>
       </KeyboardAvoidingView>

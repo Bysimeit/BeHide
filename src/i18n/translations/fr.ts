@@ -206,6 +206,33 @@ export const fr = {
     composerPlaceholder: "Écrivez votre message...",
     composerLabel: "Champ de message",
     send: "Envoyer le message",
+    openLink: "Ouvrir le lien {url}",
+    attach: "Joindre une photo ou une vidéo",
+    attachTitle: "Envoyer un média",
+    attachLibrary: "Choisir dans la galerie",
+    attachCamera: "Prendre une photo ou une vidéo",
+    mediaImage: "Photo",
+    mediaVideo: "Vidéo",
+    mediaOpen: "Ouvrir : {kind}",
+    mediaSending: "Envoi… {percent} %",
+    mediaReceiving: "Réception… {percent} %",
+    mediaFailed: "Transfert interrompu",
+    mediaRetry: "Réessayer",
+    mediaUnavailable: "Média indisponible sur cet appareil.",
+    mediaPlayerUnavailable:
+      "Le lecteur vidéo s'appuie sur un module natif absent de cette version de l'application : reconstruisez-la pour l'activer.",
+    mediaTooLargeTitle: "Fichier trop lourd",
+    mediaTooLargeMessage:
+      "Ce média pèse {size} Mo. La limite est de {limit} Mo : chaque média passe entier par le relais, chiffré.",
+    mediaDeniedTitle: "Caméra refusée",
+    mediaDeniedMessage:
+      "BeHide a besoin de la caméra pour prendre une photo ou une vidéo. Autorisez-la dans les réglages de l'appareil.",
+    mediaUnreadableTitle: "Média illisible",
+    mediaUnreadableMessage:
+      "Ce fichier n'a pas pu être lu sur cet appareil. Réessayez avec un autre média.",
+    mediaUnsupportedTitle: "Envoi de médias indisponible",
+    mediaUnsupportedMessage:
+      "Le sélecteur de médias s'appuie sur des modules natifs absents de cette version de l'application : reconstruisez-la pour l'activer (il ne fonctionne pas dans Expo Go).",
   },
   call: {
     ended: "Appel terminé",
@@ -327,6 +354,8 @@ export const fr = {
   },
   notifications: {
     newMessage: "vous a envoyé un message",
+    newPhoto: "vous a envoyé une photo",
+    newVideo: "vous a envoyé une vidéo",
     incomingCall: "vous appelle",
     incomingVideoCall: "Appel vidéo entrant",
   },

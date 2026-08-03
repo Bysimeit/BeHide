@@ -50,6 +50,31 @@ export const open = (
   }
 };
 
+const NONCE_BYTES = 24;
+
+export const sealBytes = (key: Uint8Array, plaintext: Uint8Array): Uint8Array => {
+  const nonce = Crypto.getRandomBytes(NONCE_BYTES);
+  const ciphertext = xchacha20poly1305(key, nonce).encrypt(plaintext);
+  const sealed = new Uint8Array(nonce.length + ciphertext.length);
+  sealed.set(nonce);
+  sealed.set(ciphertext, nonce.length);
+  return sealed;
+};
+
+export const openBytes = (
+  key: Uint8Array,
+  sealed: Uint8Array,
+): Uint8Array | null => {
+  if (sealed.length <= NONCE_BYTES) return null;
+  try {
+    return xchacha20poly1305(key, sealed.subarray(0, NONCE_BYTES)).decrypt(
+      sealed.subarray(NONCE_BYTES),
+    );
+  } catch {
+    return null;
+  }
+};
+
 export const encryptFor = (
   myKeys: SecretKeys,
   myPublicKeyHex: string,
