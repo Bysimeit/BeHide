@@ -61,7 +61,9 @@
   },
   "overrides": {
     "brace-expansion@1": "^1.1.18",
-    "brace-expansion@5": "^5.0.9"
+    "brace-expansion@5": "^5.0.9",
+    "decode-uri-component": "^0.5.0",
+    "uuid": "^11.1.1"
   },
   "expo": {
     "doctor": {
